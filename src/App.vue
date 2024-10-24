@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import Header from './components/Header.vue';
+import AppHeader from './components/AppHeader.vue';
 import Navbar from './components/Navbar.vue';
 import SearchComponent from './components/SearchComponent.vue';
 import CategoriesTags from './components/CategoriesTags.vue';
@@ -10,6 +10,8 @@ import CategoriesTags from './components/CategoriesTags.vue';
 
 <template>
         <Navbar/>
+        <AppHeader></AppHeader>
+        
 </template>
 
 
