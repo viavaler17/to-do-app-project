@@ -16,6 +16,7 @@ import CategoriesTags from './components/CategoriesTags.vue';
 <style scoped>
 *{
     background-color: white;
-    color: black;
+    color: green;
+
 }
 </style>
