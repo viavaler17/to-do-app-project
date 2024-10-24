@@ -5,6 +5,7 @@ import Navbar from './components/Navbar.vue';
 import SearchComponent from './components/SearchComponent.vue';
 import CategoriesTags from './components/CategoriesTags.vue';
 import TrueHeader from './components/TrueHeader.vue';
+import ProfileDetails from './views/LoggedIn/ProfileDetails.vue';
 
 </script>
 
@@ -12,7 +13,6 @@ import TrueHeader from './components/TrueHeader.vue';
 <template>
         <TrueHeader></TrueHeader>
         <Navbar/>
-        <AppHeader></AppHeader>
 </template>
 
 
