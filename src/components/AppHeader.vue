@@ -4,6 +4,20 @@ import { supabase } from '@/services/supabase';
 
 const items = ref([]);
 
+// const fetchItems = async () => {
+//   try {
+//     const { data, error } = await supabase
+//       .from('items')
+//       .select('*');
+//     if (error) {
+//       throw error;
+//     }
+//     items.value = data;
+//   } catch (error) {
+//     console.error('Error fetching data:', error.message);
+//   }
+// };
+
 const fetchItems = async () => {
   try {
     const { data, error } = await supabase
@@ -12,6 +26,7 @@ const fetchItems = async () => {
     if (error) {
       throw error;
     }
+    console.log('Fetched data:', data); // Add this line
     items.value = data;
   } catch (error) {
     console.error('Error fetching data:', error.message);
@@ -19,14 +34,13 @@ const fetchItems = async () => {
 };
 
 onMounted(fetchItems);
-
 </script>
 
 <template>
     <div>
         <ul>
             <li v-for="item in items" :key="item.id">
-                {{ item.name }} - {{ item.age }}
+                {{ item.user }} - {{ item.age }}
             </li>
         </ul>
     </div>
