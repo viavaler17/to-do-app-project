@@ -40,7 +40,7 @@ onMounted(fetchItems);
     <div>
         <ul>
             <li v-for="item in items" :key="item.id">
-                {{ item.user }} - {{ item.age }}
+                {{ item.title }} - {{ item.directions }} - {{ item.category }}
             </li>
         </ul>
     </div>

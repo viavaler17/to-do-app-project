@@ -5,7 +5,6 @@ import SearchComponent from '@/components/SearchComponent.vue';
 </script>
 
 <template>
-    <Navbar/>
     <SearchComponent/>
     <CategoriesTags/>
 </template>
