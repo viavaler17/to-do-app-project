@@ -12,6 +12,7 @@ const fetchItems = async () => {
     if (error) {
       throw error;
     }
+  
     items.value = data;
   } catch (error) {
     console.error('Error fetching data:', error.message);
@@ -26,7 +27,7 @@ onMounted(fetchItems);
     <div>
         <ul>
             <li v-for="item in items" :key="item.id">
-                {{ item.name }} - {{ item.age }}
+                {{ item.title }} - {{ item.directions }} - {{  item.category }}
             </li>
         </ul>
     </div>

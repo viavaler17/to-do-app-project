@@ -11,7 +11,6 @@ import CategoriesTags from './components/CategoriesTags.vue';
 <template>
         <Navbar/>
         <AppHeader></AppHeader>
-        
 </template>
 
 
