@@ -25,7 +25,7 @@ const signInUser = async () => {
       router.push('/ProfileDetails'); 
     }
   } catch (err) {
-    errorMessage.value = 'Error logging in.';
+    errorMessage.value = 'Error logging in:'+err;
   }
 };
 </script>
