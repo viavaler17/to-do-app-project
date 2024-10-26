@@ -1,28 +1,35 @@
 <script setup>
+import { defineEmits } from 'vue';
+
+const emit = defineEmits(['categorySelected']);
+
+const selectCategory = (category) => {
+  emit('categorySelected', category);
+};
 </script>
 
 <template>
     <div class="categories-tags">
         <h3>Categories: </h3>
-        <ul>
-            <li>Breakfast</li>
-            <li>Lunch</li>
-            <li>Dinner</li>
-            <li>Dessert</li>
-        </ul>    
-    </div>
-
-    <div class="categories-tags">
-        <h3>Tags</h3>
-        <div class="tags-p">
-            <p>#highprotein</p>
-            <p>#vege</p>
-            <p>#under15min</p>     
-        </div>
+            <ul class="categories">
+                <li @click="selectCategory('Breakfast')">Breakfast</li>
+                <li @click="selectCategory('Lunch')">Lunch</li>
+                <li @click="selectCategory('Dinner')">Dinner</li>
+                <li @click="selectCategory('')">All</li>
+            </ul>
     </div>
 </template>
-
+l
 <style scoped>
+  .categories li {
+    cursor: pointer;
+    display: block;
+  }
+
+  .categories li:hover{
+    color: blue;
+  }
+
 /* .categories-tags{
     margin: 20px;
     width: 200px;
@@ -70,6 +77,7 @@ h3{
     background-color: #e8dd8fd4; 
     border-radius: 4px; 
     transition: background-color 0.3s; 
+    width: max-content;
 }
 
 .tags-p p:hover {
