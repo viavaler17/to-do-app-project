@@ -14,7 +14,7 @@
 </template>
 
 <style scoped>
-    ul{
+  ul{
         list-style-type: none;
         display: flex;
         justify-content: end;
@@ -23,7 +23,15 @@
         padding: 20px 40px;
         background-color: #00686B;
         color: white;
-        font-size: 24px;
+        font-size: 18px;
         font-weight: 600;
-    }
+  }
+
+  a:link{
+    color: white;
+  }
+
+  a:visited{
+    color: white;
+  }
 </style>

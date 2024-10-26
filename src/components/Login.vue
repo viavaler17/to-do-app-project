@@ -26,7 +26,7 @@ const signInUser = async () => {
       
     }
   } catch (err) {
-    errorMessage.value = 'Error logging in.';
+    errorMessage.value = 'Error logging in:'+err;
   }
 };
 </script>
