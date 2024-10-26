@@ -1,11 +1,10 @@
 <script setup>
-import Login from '@/components/Login.vue';
-import ProfileDetails from './LoggedIn/ProfileDetails.vue';
+import SignUp from '@/components/SignUp.vue';
+
 </script>
 
 <template>
-    <Login></Login>
-    <ProfileDetails></ProfileDetails>
+    <SignUp></SignUp>
 </template>
 
 <style scoped>

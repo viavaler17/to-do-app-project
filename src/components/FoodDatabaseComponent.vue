@@ -23,33 +23,28 @@ onMounted(fetchItems);
 </script>
 
 <template>
-    <div>
-        <table>
-          <tr class="table-header">
+      <div>
+    <table>
+      <thead>
+        <tr class="table-header">
           <th>Title</th>
           <th>Directions</th>
           <th>Category</th>
         </tr>
+      </thead>
+      <tbody>
         <tr v-for="item in items" :key="item.id">
           <td>{{ item.title }}</td>
           <td>{{ item.directions }}</td>
-          <td>{{  item.category }}</td>
+          <td>{{ item.category }}</td>
         </tr>
-        </table>
-    </div>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <style scoped>
-/* .table-header{
-  text-align: center;
-  font-size: medium;
-} */
-/* th{
-  text-align: center;
-  font-size: medium;
-  font-weight: bold;
-  padding: 20px 50px;
-} */
+
 table {
     width: 100%;
     border-collapse: collapse;
