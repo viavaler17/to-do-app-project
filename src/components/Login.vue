@@ -5,13 +5,13 @@ import { supabase } from '@/services/supabase';
 
 const router = useRouter();
 
-
 const email = ref('');
 const password = ref('');
 const errorMessage = ref('');
 
 
 const signInUser = async () => {
+  
   try {
     const { data, error } = await supabase.auth.signInWithPassword({
       email: email.value,
@@ -23,6 +23,7 @@ const signInUser = async () => {
     } else {
       errorMessage.value = ''; 
       router.push('/ProfileDetails'); 
+      
     }
   } catch (err) {
     errorMessage.value = 'Error logging in.';

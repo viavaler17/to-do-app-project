@@ -3,7 +3,7 @@
 
 <template>
     <div class="categories-tags">
-        <h3>Categories</h3>
+        <h3>Categories: </h3>
         <ul>
             <li>Breakfast</li>
             <li>Lunch</li>
@@ -23,7 +23,7 @@
 </template>
 
 <style scoped>
-.categories-tags{
+/* .categories-tags{
     margin: 20px;
     width: 200px;
 }
@@ -49,6 +49,31 @@ h3{
 .categories-tags p{
     border: solid 1px #B9D300;
     width: max-content;
-    padding: 4px;
+    padding: 7px;
+    border-radius: 15%;
+} */
+
+.categories-tags {
+    padding: 20px; 
+    background-color: #f9f9f9; 
+}
+
+.tags-p {
+    display: flex; 
+    flex-direction: column; 
+    margin-top: 10px; 
+}
+
+.tags-p p {
+    margin: 5px 0; 
+    padding: 8px; 
+    background-color: #e8dd8fd4; 
+    border-radius: 4px; 
+    transition: background-color 0.3s; 
+}
+
+.tags-p p:hover {
+    background-color: #c0c0c0;
+    cursor: pointer; 
 }
 </style>
