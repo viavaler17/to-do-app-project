@@ -2,7 +2,7 @@
 import HeaderComponent from './components/HeaderComponent.vue';
 import NavbarComponent from './components/NavbarComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
-import FoodDatabaseComponent from './components/FoodDatabaseComponent.vue';
+
 
 </script>
 

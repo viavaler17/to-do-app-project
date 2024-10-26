@@ -1,4 +1,4 @@
-<script setup>
+<!-- <!-- <script setup>
 import { ref } from 'vue';
 import { supabase } from '@/services/supabase';
 import { useRouter } from 'vue-router';
@@ -7,36 +7,131 @@ const email = ref('');
 const password = ref('');
 
 
+</script> -->
+
+<!--  --> -->
+<script setup>
+import { ref } from "vue";
+import { supabase } from "@/services/supabase"; // Adjust the path as needed
+import { useRouter } from 'vue-router';
+import SignUp from "@/views/SignUp.vue";
+
+// Reactive variables for email and password
+const email = ref("");
+const password = ref(""); 
+
+async function createAccount() {
+  const {data, error } = await supabase.auth.signUp({
+    email: email.value,
+    password: password.value
+  })
+  if(error) {
+    console.log(error)
+  }
+    else {
+      console.log(data)
+    }
+  }
+
+// Function to handle signup
+function login(){
+  console.log(email.value, password.value);
+}
+
 </script>
 
+
 <template>
-  <div class="login-box">
-    <h1>Sign Up</h1>
-    <form class="email-password" @submit.prevent="signUp">
-      <label for="email">E-mail:</label>
-      <input type="email" id="login-email" v-model="email" required />
-
-      <label for="password">Password:</label>
-      <input type="password" id="password" v-model="password" required />
-
-      <button type="submit">Sign In</button>
+  <div class="signup-container">
+    <h2>Sign up for an account</h2>
+    <form>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" v-model="email" />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" v-model="password" />
+      </div>
+      <div class="button-group">
+        <button @click="login" class="button login-button">Log in</button>
+        <button @click="createAccount" class="button signup-button">Create Account</button>
+      </div>
     </form>
   </div>
 </template>
 
 <style scoped>
-.login-box{
-    border: 2px solid black;
-    text-align: center;
-    padding: 20px;
-
-    margin: 100px 50px;
+.signup-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.email-password{
-    display: flex;
-    flex-direction: column;
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1em;
+}
 
-    margin: 40px 0px;
+.form-group {
+  margin-bottom: 1.5em;
+}
+
+label {
+  display: block;
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 0.5em;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.75em;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  padding: 0.75em 1.5em;
+  font-size: 1em;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button {
+  background-color: #6c757d;
+}
+
+.signup-button {
+  background-color: #007bff;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button:active {
+  transform: scale(0.98);
 }
 </style>
