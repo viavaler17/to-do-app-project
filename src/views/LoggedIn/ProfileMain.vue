@@ -1,6 +1,4 @@
 <script setup>
-import ProfileDetails from './ProfileDetails.vue';
-
 </script>
 
 <template>
