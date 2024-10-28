@@ -22,7 +22,7 @@
   
   <script setup>
   import { ref } from 'vue';
-  import { signUp, logIn, logOut } from '/Users/karolina/Documents/Ironhack/Final_project/to-do-app-project/src/services/authServices.js';
+  import { signUp, logIn, logOut  } from '@/services/authServices';
 
   const email = ref('');
   const password = ref('');
