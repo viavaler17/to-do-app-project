@@ -1,117 +1,11 @@
-<!-- <script setup> 
-import { ref, onMounted, computed } from 'vue'; 
-import { supabase } from '@/services/supabase'; 
-import CategoriesTags from './CategoriesTags.vue'; 
- 
-const recipes = ref([]); 
-const selectedCategory = ref(''); 
- 
-const fetchRecipes = async () => { 
-  const { data, error } = await supabase 
-    .from('recipes') 
-    .select('title, imageURL, prep_time, ingredients, description, category'); 
- 
-  if (error) { 
-    console.error('Error fetching data:', error); 
-  } else { 
-    recipes.value = data; 
-  } 
-}; 
- 
-const filteredRecipes = computed(() => { 
-  if (selectedCategory.value) { 
-    return recipes.value.filter(recipe =>  
-      recipe.category && recipe.category.includes(selectedCategory.value) 
-    ); 
-  } 
-  return recipes.value; 
-}); 
- 
-const selectCategory = (category) => { 
-  selectedCategory.value = category; 
-}; 
- 
-onMounted(() => { 
-  fetchRecipes(); 
-}); 
-</script> 
- 
-<template> 
-  <div class="container"> 
-    <CategoriesTags @categorySelected="selectCategory" /> 
-    <div class="recipes">
-      <h1>Recipes</h1>
-    <ul class="recipe-list"> 
-      <li v-for="recipe in filteredRecipes" :key="recipe.id"> 
-        <h2>{{ recipe.title }}</h2> 
-        <img :src="recipe.imageURL" :alt="recipe.title" /> 
-        <p>{{ recipe.description }}</p> 
-        <p>Prep Time: {{ recipe.prep_time }} minutes</p> 
-        <ul class="ingredient-list"> 
-          <li v-for="(ingredient, index) in recipe.ingredients" :key="index"> 
-            {{ ingredient.ingredient }}: {{ ingredient.amount }} 
-          </li> 
-        </ul>
-      </li>
-    </ul>
-  </div>
-  </div>
-</template>
-
-<style scoped>
-.recipes {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.recipe-list {
-  list-style: none;
-  padding: 0;
-}
-
-.recipe-card {
-  background-color: #fcfcfc;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
-}
-
-.recipe-card:hover {
-  transform: translateY(-5px);
-}
-
-.recipe-image {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-}
-
-.ingredient-list {
-  list-style-type: disc;
-  padding-left: 20px;
-  color: #5a5a5a;
-}
-</style> -->
-
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { supabase } from '@/services/supabase';
-import { defineProps } from 'vue';
-
-const props = defineProps({
-  selectedCategory: {
-    type: String,
-    default: ''
-  }
-});
+import CategoriesTags from './CategoriesTags.vue';
 
 const recipes = ref([]);
+const selectedCategory = ref('');
 
-// Fetch recipes from the database
 const fetchRecipes = async () => {
   const { data, error } = await supabase
     .from('recipes')
@@ -124,15 +18,51 @@ const fetchRecipes = async () => {
   }
 };
 
-// Filter recipes based on the selected category or tag
 const filteredRecipes = computed(() => {
-  if (props.selectedCategory) {
-    return recipes.value.filter(recipe =>
-      recipe.category && recipe.category.includes(props.selectedCategory)
+  if (selectedCategory.value) {
+    return recipes.value.filter(recipe => 
+      recipe.category && recipe.category.includes(selectedCategory.value)
     );
   }
   return recipes.value;
 });
+
+const selectCategory = (category) => {
+  selectedCategory.value = category;
+};
+
+const favouritedButton = async(recipe) =>{
+  try{
+    const {data: user, error} = await supabase
+    .from('users')
+    .select('favourited')
+    .eq('id', '1')
+    .single()
+
+  if (error) {
+      console.error('Error retrieving user data:', error);
+      return;
+    }
+  
+    const favourites = user.favourited || [];
+
+    if(!favourites.includes(recipe.id)){
+      favourites.push(recipe.id);
+    }
+
+    const { error: updateError } = await supabase
+      .from('users')
+      .update({ favourited: favourites })
+      .eq('id', '1')
+      if (updateError) {
+      console.error('Error updating favorites:', updateError);
+    } else {
+      console.log(`Favorites updated`, favourites);
+    }
+  } catch (err) {
+    console.error('Unexpected error:', err);
+  }
+};
 
 onMounted(() => {
   fetchRecipes();
@@ -140,12 +70,17 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="recipes">
-    <h1>Recipes</h1>
-    <ul class="recipe-list">
-      <li v-for="recipe in filteredRecipes" :key="recipe.id" class="recipe-card">
+  <div class="browsing-view">
+    <div class="categories">
+      <CategoriesTags @categorySelected="selectCategory" />
+    </div>
+
+    <ul class="recipes-listed">
+      
+      <li v-for="recipe in filteredRecipes" :key="recipe.id" class="recipes-listed-each">
+        <button @click="favouritedButton(recipe)">Make favourite</button>
         <h2>{{ recipe.title }}</h2>
-        <img :src="recipe.imageURL" :alt="recipe.title" class="recipe-image" />
+        <img :src="recipe.imageURL" :alt="recipe.title" class="recipe-img"/>
         <p>{{ recipe.description }}</p>
         <p>Prep Time: {{ recipe.prep_time }} minutes</p>
         <ul class="ingredient-list">
@@ -159,40 +94,26 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.recipes {
+.browsing-view{
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  align-items: flex-start;
 }
 
-.recipe-list {
-  list-style: none;
-  padding: 0;
+.recipes-listed{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: max-content;
+
+  list-style-type: none;
 }
 
-.recipe-card {
-  background-color: #fcfcfc;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
+.recipes-listed-each{
+  padding: 100px;
 }
 
-.recipe-card:hover {
-  transform: translateY(-5px);
-}
-
-.recipe-image {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-}
-
-.ingredient-list {
-  list-style-type: disc;
-  padding-left: 20px;
-  color: #5a5a5a;
+.recipe-img{
+  width: 100px;
+  height: 100px;
 }
 </style>

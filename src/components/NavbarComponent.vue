@@ -10,6 +10,7 @@ import { RouterLink, RouterView } from 'vue-router';
       <li><router-link to="/browserecipes">Browse Recipes</router-link></li>
       <li><router-link to="/about">About</router-link></li>
       <li><router-link to="/contact">Contact</router-link></li>
+      <li><router-link to="/profile">Temporary profile button</router-link></li>
     </ul>
   </nav>
   <router-view></router-view>
