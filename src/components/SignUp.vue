@@ -1,43 +1,5 @@
-<!-- <!-- <script setup>
-import { ref } from 'vue';
-import { supabase } from '@/services/supabase';
-import { useRouter } from 'vue-router';
 
-const email = ref('');
-const password = ref('');
-
-
-</script> -->
-
-<!--  --> -->
 <script setup>
-import { ref } from "vue";
-import { supabase } from "@/services/supabase"; // Adjust the path as needed
-import { useRouter } from 'vue-router';
-import SignUp from "@/views/SignUp.vue";
-
-// Reactive variables for email and password
-const email = ref("");
-const password = ref(""); 
-
-async function createAccount() {
-  const {data, error } = await supabase.auth.signUp({
-    email: email.value,
-    password: password.value
-  })
-  if(error) {
-    console.log(error)
-  }
-    else {
-      console.log(data)
-    }
-  }
-
-// Function to handle signup
-function login(){
-  console.log(email.value, password.value);
-}
-
 </script>
 
 
