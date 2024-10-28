@@ -14,6 +14,7 @@ import NotFound from '@/views/NotFound.vue';
 import AddRecipe from '@/views/LoggedIn/AddRecipe.vue';
 import AuthServicesView from '@/views/AuthServicesView.vue';
 import RecipeDetail from '@/components/RecipeDetail.vue';
+import SingularRecipe from '@/views/SingularRecipe.vue';
 
 
 const routes = [
@@ -31,11 +32,20 @@ const routes = [
     { path: '/authservices', name: 'Auth Services', component: AuthServicesView },
     { path: '/:pathMatch(.*)*', name: 'Not Found', component: NotFound },
     { path: '/recipe/:id', name: 'RecipeDetail', component: () => import('@/components/RecipeDetail.vue'),},
+    { path: '/recipe/:id', name: 'SingularRecipe', component: SingularRecipe },
+    { path: '/:pathMatch(.*)*', name: 'Not Found', component: NotFound }
   ];
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.VITE_BASE_URL),
     routes,
+    scrollBehavior(to, from, savedPosition) {
+      if (savedPosition) {
+        return savedPosition;
+      } else {
+        return { top: 0 };
+      }
+    }
   });
 
 export default router

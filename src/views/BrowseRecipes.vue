@@ -1,57 +1,74 @@
-
 <script setup>
-import { ref } from 'vue';
-import SearchComponent from '@/components/SearchComponent.vue';
+import { ref, onMounted, computed } from 'vue';
 import CategoriesTags from '@/components/CategoriesTags.vue';
 import RecipesListed from '@/components/RecipesListed.vue';
+import { supabase } from '@/services/supabase'; // Ensure your supabase is correctly configured
 
-// Store the selected category to pass it to RecipesListed.vue
+const recipes = ref([]);
 const selectedCategory = ref('');
 
-// Function to update the selected category
-const handleCategorySelected = (category) => {
+const fetchRecipes = async () => {
+  const { data, error } = await supabase
+    .from('recipes')
+    .select('title, imageURL, prep_time, ingredients, description, category, id');
+
+  if (error) {
+    console.error('Error fetching data:', error);
+  } else {
+    recipes.value = data;
+  }
+};
+
+const filteredRecipes = computed(() => {
+  if (selectedCategory.value) {
+    return recipes.value.filter(recipe => 
+      recipe.category && recipe.category.includes(selectedCategory.value)
+    );
+  }
+  return recipes.value;
+});
+
+const selectCategory = (category) => {
   selectedCategory.value = category;
 };
+
+onMounted(() => {
+  fetchRecipes();
+});
 </script>
 
 <template>
-  <div class="browse-container">
-    <!-- Search Component at the top -->
-    <SearchComponent />
-
-    <!-- Main content area -->
-    <div class="content">
-      <!-- Categories and Tags Sidebar -->
-      <CategoriesTags @categorySelected="handleCategorySelected" />
-
-      <!-- Recipes List, passing selectedCategory as a prop -->
-      <RecipesListed :selectedCategory="selectedCategory" />
-    </div>
+  <div class="container">
+    <CategoriesTags @categorySelected="selectCategory" />
+    <RecipesListed :filteredRecipes="filteredRecipes" />
   </div>
 </template>
 
 <style scoped>
-.browse-container {
-  display: flex;
-  flex-direction: column; /* Stack SearchComponent on top */
-  align-items: center;
-}
+  .container{
+    display: flex;
+    padding: 50px;
+  }
 
-.content {
-  display: flex;
-  width: 100%;
-  max-width: 1200px;
-  margin-top: 20px;
-}
+  /* .browse-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+  }
 
-/* Sidebar for categories and tags */
-.content > *:first-child {
-  width: 250px;
-  margin-right: 20px;
-}
+  .content {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+  }
 
-/* Recipes area takes the remaining space */
-.content > *:last-child {
-  flex-grow: 1;
-}
+  .content > *:first-child {
+    width: 250px;
+    margin-right: 20px;
+  }
+
+  .content > *:last-child {
+    flex-grow: 1;
+  } */
 </style>
