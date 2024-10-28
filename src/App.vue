@@ -10,6 +10,11 @@ import FooterComponent from './components/FooterComponent.vue';
 <template>
         <HeaderComponent></HeaderComponent>
         <NavbarComponent/>
+
+        <router-link to="/authservices">
+            Auth Services Here
+        </router-link>
+
         <FooterComponent></FooterComponent>
 </template>
 
