@@ -13,6 +13,7 @@ import ProfileDetails from '@/views/LoggedIn/ProfileDetails.vue';
 import NotFound from '@/views/NotFound.vue';
 import AddRecipe from '@/views/LoggedIn/AddRecipe.vue';
 import AuthServicesView from '@/views/AuthServicesView.vue';
+import RecipeDetail from '@/components/RecipeDetail.vue';
 
 
 const routes = [
@@ -28,7 +29,8 @@ const routes = [
     { path: '/profiledetails', name: 'Profile details', component: ProfileDetails },
     { path: '/addrecipe', name: 'Add recipe', component: AddRecipe },
     { path: '/authservices', name: 'Auth Services', component: AuthServicesView },
-    { path: '/:pathMatch(.*)*', name: 'Not Found', component: NotFound }
+    { path: '/:pathMatch(.*)*', name: 'Not Found', component: NotFound },
+    { path: '/recipe/:id', name: 'RecipeDetail', component: () => import('@/components/RecipeDetail.vue'),},
   ];
 
 const router = createRouter({
