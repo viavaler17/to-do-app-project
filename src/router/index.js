@@ -18,7 +18,7 @@ import SingularRecipe from '@/views/SingularRecipe.vue';
 
 
 const routes = [
-    { path: '/', name: 'Home', component: Home },
+    { path: '/home', name: 'Home', component: Home },
     { path: '/browserecipes', name: 'Browse Recipes', component: BrowseRecipes },
     { path: '/about', name: 'About', component: About},
     { path: '/contact', name: 'Contact', component: Contact },

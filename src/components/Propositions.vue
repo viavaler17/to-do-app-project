@@ -40,7 +40,7 @@ onMounted(() => {
         v-for="recipe in randomRecipes" 
         :key="recipe.id" 
         class="recipe-card" 
-        @click="openRecipe(recipe.id)"  
+        @click="$router.push({ name: 'SingularRecipe', params: { id: recipe.id } })" 
         :style="{ backgroundImage: `url(${recipe.imageURL})` }" 
       >
         <div class="recipe-title">{{ recipe.title }}</div>
