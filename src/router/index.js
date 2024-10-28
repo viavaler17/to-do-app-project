@@ -11,6 +11,8 @@ import Favourited from '@/views/LoggedIn/Favourited.vue';
 import ShoppingList from '@/views/LoggedIn/ShoppingList.vue';
 import ProfileDetails from '@/views/LoggedIn/ProfileDetails.vue';
 import NotFound from '@/views/NotFound.vue';
+import AddRecipe from '@/views/LoggedIn/AddRecipe.vue';
+import AuthServicesView from '@/views/AuthServicesView.vue';
 
 
 const routes = [
@@ -24,6 +26,8 @@ const routes = [
     { path: '/favourited', name: 'Favourited recipes', component: Favourited },
     { path: '/shippinglist', name: 'Shopping List', component: ShoppingList },
     { path: '/profiledetails', name: 'Profile details', component: ProfileDetails },
+    { path: '/addrecipe', name: 'Add recipe', component: AddRecipe },
+    { path: '/authservices', name: 'Auth Services', component: AuthServicesView },
     { path: '/:pathMatch(.*)*', name: 'Not Found', component: NotFound }
   ];
 

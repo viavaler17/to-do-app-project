@@ -31,20 +31,56 @@ const selectCategory = (category) => {
   selectedCategory.value = category;
 };
 
+const favouritedButton = async(recipe) =>{
+  try{
+    const {data: user, error} = await supabase
+    .from('users')
+    .select('favourited')
+    .eq('id', '1')
+    .single()
+
+  if (error) {
+      console.error('Error retrieving user data:', error);
+      return;
+    }
+  
+    const favourites = user.favourited || [];
+
+    if(!favourites.includes(recipe.id)){
+      favourites.push(recipe.id);
+    }
+
+    const { error: updateError } = await supabase
+      .from('users')
+      .update({ favourited: favourites })
+      .eq('id', '1')
+      if (updateError) {
+      console.error('Error updating favorites:', updateError);
+    } else {
+      console.log(`Favorites updated`, favourites);
+    }
+  } catch (err) {
+    console.error('Unexpected error:', err);
+  }
+};
+
 onMounted(() => {
   fetchRecipes();
 });
 </script>
 
 <template>
-  <div>
-    <h1>Recipes</h1>
-    <CategoriesTags @categorySelected="selectCategory" />
+  <div class="browsing-view">
+    <div class="categories">
+      <CategoriesTags @categorySelected="selectCategory" />
+    </div>
 
-    <ul>
-      <li v-for="recipe in filteredRecipes" :key="recipe.id">
+    <ul class="recipes-listed">
+      
+      <li v-for="recipe in filteredRecipes" :key="recipe.id" class="recipes-listed-each">
+        <button @click="favouritedButton(recipe)">Make favourite</button>
         <h2>{{ recipe.title }}</h2>
-        <img :src="recipe.imageURL" :alt="recipe.title" />
+        <img :src="recipe.imageURL" :alt="recipe.title" class="recipe-img"/>
         <p>{{ recipe.description }}</p>
         <p>Prep Time: {{ recipe.prep_time }} minutes</p>
         <ul>
@@ -60,4 +96,26 @@ onMounted(() => {
 
 
 <style scoped>
+.browsing-view{
+  display: flex;
+  align-items: flex-start;
+}
+
+.recipes-listed{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: max-content;
+
+  list-style-type: none;
+}
+
+.recipes-listed-each{
+  padding: 100px;
+}
+
+.recipe-img{
+  width: 100px;
+  height: 100px;
+}
 </style>
