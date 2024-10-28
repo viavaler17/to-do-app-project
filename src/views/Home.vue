@@ -1,14 +1,12 @@
 <script setup>
+import Propositions from '@/components/Propositions.vue';
 </script>
 
 <template>
-    <div class="home-page">
-        <header class="header">
-            <nav>
-                <a href="#" class="logo">Cook the world</a>
-            </nav>
-        </header>
-        </div>
+    <div>
+    <h1>Welcome to Our Recipe App</h1>
+    <Propositions />
+  </div>
 
         <!-- </header>
         <h1>Cook the world</h1>
