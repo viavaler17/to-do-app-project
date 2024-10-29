@@ -3,7 +3,6 @@
     <div>
       <h1>Sign Up</h1>
       <form @submit.prevent="handleSignup">
-        <!-- <input v-model="username" type="text" placeholder="Username" required /> -->
         <input v-model="email" type="email" placeholder="Email" required />
         <input v-model="password" type="password" placeholder="Password" required />
         <button type="submit">Sign Up</button>
@@ -22,17 +21,16 @@
   const password = ref('');
   const router = useRouter();
   
-  const isValidEmail = (email) => {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
-  };
+  // const isValidEmail = (email) => {
+  //   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   return emailPattern.test(email);
+  // };
   
   const handleSignup = async () => {
     try {
       const { user, data } = await signup(email.value, password.value);
       console.log('User signed up:', user, data);
       router.push('/profile');
-      // router.push('/profile');
     } catch (error) {
       console.error('Error signing up:', error);
     }

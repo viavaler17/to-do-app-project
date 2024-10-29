@@ -9,18 +9,21 @@
   <script setup>
   import { ref } from 'vue';
   import { logout } from '@/services/database';
+  import { useRouter } from 'vue-router';
+
   
-  const message = ref(''); // To display logout success or error messages
+  const message = ref('');
+  const router = useRouter();
+  
   
   const handleLogout = async () => {
-    message.value = ''; // Reset message
+    message.value = ''; 
     try {
-      await logout(); // Call the logout function
+      await logout(); 
       message.value = 'You have been logged out successfully.';
-      
-      // Optionally, redirect the user or perform any other action
+      router.push('/profile');
     } catch (error) {
-      message.value = 'Error logging out: ' + error.message; // Set error message to display
+      message.value = 'Error logging out: ' + error.message; 
       console.error('Error logging out:', error);
     }
   };

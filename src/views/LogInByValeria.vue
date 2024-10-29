@@ -26,7 +26,6 @@
       const user = await login(email.value, password.value);
       console.log('User logged in:', user);
       router.push('/profile');
-
     } catch (error) {
       errorMessage.value = error.message;
       console.error('Error logging in:', error);

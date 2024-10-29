@@ -6,7 +6,7 @@ import { RouterLink } from 'vue-router';
 <template>
     <div class="header">
         <router-link to="/login" class="header-router">
-            <p>Log in</p>
+            <p>Log in / Sign Up</p>
             <img src="https://cdn-icons-png.flaticon.com/128/3580/3580168.png" alt="Log in/Sign up icon">        
         </router-link>
     </div>
