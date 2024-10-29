@@ -44,7 +44,7 @@ export default {
                 <slot name="ingredients">
                     <ul>
                         <li v-for="(ingredient, index) in ingredients" :key="index">
-                            {{ ingredient.ingredient }}: {{ ingredient.amount }}
+                          {{ ingredient.ingredient }}: {{ ingredient.amount }} {{ ingredient.unit }}
                         </li>
                     </ul>
                 </slot>
