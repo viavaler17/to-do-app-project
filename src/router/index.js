@@ -5,7 +5,6 @@ import BrowseRecipes from '@/views/BrowseRecipes.vue';
 import About from '@/views/About.vue';
 import Contact from '@/views/Contact.vue';
 import Login from '@/views/Login.vue';
-import SignUp from '@/views/SignUp.vue';
 import ProfileMain from '@/views/LoggedIn/ProfileMain.vue';
 import Favourited from '@/views/LoggedIn/Favourited.vue';
 import ShoppingList from '@/views/LoggedIn/ShoppingList.vue';
