@@ -13,7 +13,6 @@ import ProfileDetails from '@/views/LoggedIn/ProfileDetails.vue';
 import NotFound from '@/views/NotFound.vue';
 import AddRecipe from '@/views/LoggedIn/AddRecipe.vue';
 import AuthServicesView from '@/views/AuthServicesView.vue';
-import RecipeDetail from '@/components/RecipeDetail.vue';
 import SingularRecipe from '@/views/SingularRecipe.vue';
 
 
@@ -31,7 +30,6 @@ const routes = [
     { path: '/addrecipe', name: 'Add recipe', component: AddRecipe },
     { path: '/authservices', name: 'Auth Services', component: AuthServicesView },
     { path: '/:pathMatch(.*)*', name: 'Not Found', component: NotFound },
-    { path: '/recipe/:id', name: 'RecipeDetail', component: () => import('@/components/RecipeDetail.vue'),},
     { path: '/recipe/:id', name: 'SingularRecipe', component: SingularRecipe },
     { path: '/:pathMatch(.*)*', name: 'Not Found', component: NotFound }
   ];

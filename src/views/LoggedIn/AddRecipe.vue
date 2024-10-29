@@ -2,7 +2,6 @@
 import { ref } from 'vue';
 import { supabase } from '@/services/supabase';
 
-// Initial form state
 const form = ref({
   title: '',
   imageURL: '',
@@ -13,7 +12,9 @@ const form = ref({
 });
 
 const addIngredient = () => {
-  form.value.ingredients.push({ ingredient: '', amount: '', unit: 'grams' });
+  const lastIngredient = form.value.ingredients[form.value.ingredients.length - 1];
+  const defaultUnit = lastIngredient ? lastIngredient.unit : 'grams';
+  form.value.ingredients.push({ ingredient: '', amount: '', unit: defaultUnit });
 };
 
 const removeIngredient = (index) => {

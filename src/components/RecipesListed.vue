@@ -41,7 +41,7 @@ const favouritedButton = async(recipe) =>{
     <ul class="recipes-listed">
   
       <li v-for="recipe in filteredRecipes" :key="recipe.id" class="recipes-listed-each"
-          @click="$router.push({ name: 'SingularRecipe', params: { id: recipe.id } })">
+        @click="$router.push({ name: 'SingularRecipe', params: { id: recipe.id } })">
         <div class="favouriteButton">
           <h2>{{ recipe.title }}</h2>
           <button @click="favouritedButton(recipe)">Make favourite</button>
@@ -55,7 +55,7 @@ const favouritedButton = async(recipe) =>{
         
         <ul class="ingredient-list">
           <li v-for="(ingredient, index) in recipe.ingredients" :key="index">
-            {{ ingredient.ingredient }}: {{ ingredient.amount }}
+            {{ ingredient.ingredient }}: {{ ingredient.amount }} {{ ingredient.unit }}
           </li>
         </ul>
 
