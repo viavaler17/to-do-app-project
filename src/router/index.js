@@ -27,7 +27,6 @@ const routes = [
     { path: '/shippinglist', name: 'Shopping List', component: ShoppingList },
     { path: '/profiledetails', name: 'Profile details', component: ProfileDetails },
     { path: '/addrecipe', name: 'Add recipe', component: AddRecipe },
-    { path: '/authservices', name: 'Auth Services', component: AuthServicesView },
     { path: '/:pathMatch(.*)*', name: 'Not Found', component: NotFound },
     { path: '/recipe/:id', name: 'SingularRecipe', component: SingularRecipe },
     { path: '/:pathMatch(.*)*', name: 'Not Found', component: NotFound }
