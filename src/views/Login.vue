@@ -6,7 +6,6 @@ import ProfileDetails from './LoggedIn/ProfileDetails.vue';
 
 <template>
     <SignUp></SignUp>
-    <ProfileDetails></ProfileDetails>
 </template>
 
 <style scoped>

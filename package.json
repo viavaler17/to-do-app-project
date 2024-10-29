@@ -10,7 +10,7 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.45.6",
+    "@supabase/supabase-js": "^2.46.0",
     "pinia": "^2.2.4",
     "router": "^2.0.0",
     "vue": "^3.5.12",

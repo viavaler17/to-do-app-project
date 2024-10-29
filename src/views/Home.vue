@@ -1,11 +1,18 @@
 <script setup>
 import Propositions from '@/components/Propositions.vue';
+import SignUpByValeria from './SignUpByValeria.vue';
+import LogInByValeria from './LogInByValeria.vue';
+import LogOutByValeria from './LogOutByValeria.vue';
+
 </script>
 
 <template>
     <div>
     <h1>Welcome to Our Recipe App</h1>
     <Propositions />
+    <SignUpByValeria></SignUpByValeria>
+    <LogInByValeria></LogInByValeria>
+    <LogOutByValeria></LogOutByValeria>
   </div>
 
         <!-- </header>

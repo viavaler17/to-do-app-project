@@ -1,3 +1,4 @@
+
 import { supabase } from "./supabase";
 
 export const signUp = async (email, password) => {
@@ -32,3 +33,6 @@ export const logOut = async () => {
     console.log('User logged out');
   }
 };
+
+
+
