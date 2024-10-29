@@ -12,7 +12,7 @@ import ProfileDetails from '@/views/LoggedIn/ProfileDetails.vue';
 import NotFound from '@/views/NotFound.vue';
 import AddRecipe from '@/views/LoggedIn/AddRecipe.vue';
 import SingularRecipe from '@/views/SingularRecipe.vue';
-import SignUp from '@/components/SignUp.vue';
+import SignUpByValeria from '@/views/SignUpByValeria.vue';
 
 
 const routes = [
@@ -21,7 +21,6 @@ const routes = [
     { path: '/about', name: 'About', component: About},
     { path: '/contact', name: 'Contact', component: Contact },
     { path: '/login', name: 'Log in', component: Login },
-    { path: '/signup', name: 'Sign up', component: SignUp },
     { path: '/profile', name: 'Profile', component: ProfileMain},
     { path: '/favourited', name: 'Favourited recipes', component: Favourited },
     { path: '/shippinglist', name: 'Shopping List', component: ShoppingList },
@@ -29,7 +28,8 @@ const routes = [
     { path: '/addrecipe', name: 'Add recipe', component: AddRecipe },
     { path: '/:pathMatch(.*)*', name: 'Not Found', component: NotFound },
     { path: '/recipe/:id', name: 'SingularRecipe', component: SingularRecipe },
-    { path: '/:pathMatch(.*)*', name: 'Not Found', component: NotFound }
+    { path: '/:pathMatch(.*)*', name: 'Not Found', component: NotFound },
+    { path: '/signupbyvaleria', name: 'Sign Up By Valeria', component: SignUpByValeria },
   ];
 
 const router = createRouter({
