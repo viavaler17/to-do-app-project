@@ -3,6 +3,7 @@ import Propositions from '@/components/Propositions.vue';
 import SignUpByValeria from './SignUpByValeria.vue';
 import LogInByValeria from './LogInByValeria.vue';
 import LogOutByValeria from './LogOutByValeria.vue';
+import AuthServicesView from './AuthServicesView.vue';
 
 </script>
 
@@ -13,6 +14,7 @@ import LogOutByValeria from './LogOutByValeria.vue';
     <SignUpByValeria></SignUpByValeria>
     <LogInByValeria></LogInByValeria>
     <LogOutByValeria></LogOutByValeria>
+    <AuthServicesView></AuthServicesView>
   </div>
 
         <!-- </header>

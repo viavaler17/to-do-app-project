@@ -88,9 +88,9 @@ const updateCategories = () => {
             <input type="text" v-model="ingredient.ingredient" placeholder="Ingredient Name" required />
             <input type="number" v-model="ingredient.amount" placeholder="Amount" required />
             <select v-model="ingredient.unit">
-              <option value="grams">gram(s)</option>
-              <option value="ml">mililiter(s)</option>
-              <option value="unit">unit(s)</option>
+              <option value="gram(s)">gram(s)</option>
+              <option value="milliliter(s)">mililiter(s)</option>
+              <option value="unit(s)">unit(s)</option>
             </select>
             <button type="button" @click="removeIngredient(index)">Remove</button>
           </li>
