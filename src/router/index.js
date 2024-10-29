@@ -11,7 +11,6 @@ import ShoppingList from '@/views/LoggedIn/ShoppingList.vue';
 import ProfileDetails from '@/views/LoggedIn/ProfileDetails.vue';
 import NotFound from '@/views/NotFound.vue';
 import AddRecipe from '@/views/LoggedIn/AddRecipe.vue';
-import AuthServicesView from '@/views/AuthServicesView.vue';
 import SingularRecipe from '@/views/SingularRecipe.vue';
 
 
