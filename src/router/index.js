@@ -12,6 +12,7 @@ import ProfileDetails from '@/views/LoggedIn/ProfileDetails.vue';
 import NotFound from '@/views/NotFound.vue';
 import AddRecipe from '@/views/LoggedIn/AddRecipe.vue';
 import SingularRecipe from '@/views/SingularRecipe.vue';
+import SignUp from '@/components/SignUp.vue';
 
 
 const routes = [
