@@ -10,9 +10,6 @@ import LogOutByValeria from './LogOutByValeria.vue';
     <div>
     <h1>Welcome to Our Recipe App</h1>
     <Propositions />
-    <SignUpByValeria></SignUpByValeria>
-    <LogInByValeria></LogInByValeria>
-    <LogOutByValeria></LogOutByValeria>
   </div>
 
         <!-- </header>

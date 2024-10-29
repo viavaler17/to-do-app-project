@@ -6,15 +6,9 @@ export const signup = async (email, password) => {
     password,
   });
   if (error) throw error;
-
-  const { data, error: insertError } = await supabase
-    .from('profiles')
-    .insert([{ password }]);
-
-  if (insertError) throw insertError;
-
-  return { user, data };
+  return { user };
 };
+
 
 
 export const login = async (email, password) => {
