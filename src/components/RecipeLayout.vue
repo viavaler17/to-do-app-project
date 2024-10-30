@@ -28,7 +28,6 @@ export default {
 
 <template>
     <li class="recipe-layout">
-      
         <div class="recipe-text">
             <div class="title-time">
                 <slot name="title">

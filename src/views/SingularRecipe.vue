@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { supabase } from '@/services/supabase';
 import RecipeLayout from '@/components/RecipeLayout.vue';
+import FavoritedComponent from '@/components/FavoritedComponent.vue';
 
 const route = useRoute();
 const recipeId = route.params.id;
@@ -31,8 +32,11 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div>
+    <div class="singular-recipe">
+        <FavoritedComponent :recipeId="recipeId" />
+
         <RecipeLayout
+        :recipeId="recipe.id"
         :imageUrl="recipe.imageURL"
         :title="recipe.title"
         :cookingTime="recipe.prep_time"
@@ -43,4 +47,8 @@ onMounted(async () => {
   </template>
 
 <style scoped>
+.singular-recipe{
+  display: flex;
+  flex-direction: column;
+}
 </style>

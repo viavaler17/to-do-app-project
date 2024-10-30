@@ -1,40 +1,6 @@
 <script setup>
-import { supabase } from '@/services/supabase';
-
 const props = defineProps(['filteredRecipes']);
 
-const favouritedButton = async(recipe) =>{
-  try{
-    const {data: user, error} = await supabase
-    .from('users')
-    .select('favourited')
-    .eq('id', '1')
-    .single()
-
-  if (error) {
-      console.error('Error retrieving user data:', error);
-      return;
-    }
-  
-    const favourites = user.favourited || [];
-
-    if(!favourites.includes(recipe.id)){
-      favourites.push(recipe.id);
-    }
-
-    const { error: updateError } = await supabase
-      .from('users')
-      .update({ favourited: favourites })
-      .eq('id', '1')
-      if (updateError) {
-      console.error('Error updating favorites:', updateError);
-    } else {
-      console.log('Favorites updated', favourites);
-    }
-  } catch (err) {
-    console.error('Unexpected error:', err);
-  }
-};
 </script>
 
 <template>
@@ -44,7 +10,7 @@ const favouritedButton = async(recipe) =>{
         @click="$router.push({ name: 'SingularRecipe', params: { id: recipe.id } })">
         <div class="favouriteButton">
           <h2>{{ recipe.title }}</h2>
-          <button @click="favouritedButton(recipe)">Make favourite</button>
+          <!-- <button @click="favouritedButton(recipe)">Make favourite</button> -->
         </div>
         
         <img :src="recipe.imageURL" :alt="recipe.title" class="recipe-img"/>
