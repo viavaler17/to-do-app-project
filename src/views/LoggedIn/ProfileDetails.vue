@@ -1,4 +1,6 @@
 <script setup>
+import LogOutByValeria from '../LogOutByValeria.vue';
+
 </script>
 
 <template>
@@ -22,6 +24,7 @@
         <p>********</p>
       </div>
     </div>
+    <LogOutByValeria></LogOutByValeria>
   </template>
   
   <style scoped>
