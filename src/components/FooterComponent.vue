@@ -27,7 +27,7 @@ html, body {
 .wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Use min-height to allow the footer to stick at the bottom */
+     /* Use min-height to allow the footer to stick at the bottom */
 } 
 
 .footer {
@@ -38,7 +38,7 @@ html, body {
     align-items: center;
     width: 100%;
     padding: 20px;
-    margin-top: auto; /* Push the footer to the bottom of the page */
+    /* Push the footer to the bottom of the page */
 }
 
 img {
