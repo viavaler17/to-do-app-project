@@ -10,12 +10,14 @@
       </form>
     </div>
   </div>
+  <Propositions></Propositions>
   </template>
   
   <script setup>
   import { ref } from 'vue';
   import { signup } from '@/services/database';
   import { useRouter } from 'vue-router';
+import Propositions from '@/components/Propositions.vue';
 
   const email = ref('');
   const password = ref('');

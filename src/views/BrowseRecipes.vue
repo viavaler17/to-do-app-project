@@ -3,7 +3,7 @@ import { ref, onMounted, computed } from 'vue';
 import CategoriesTags from '@/components/CategoriesTags.vue';
 import RecipesListed from '@/components/RecipesListed.vue';
 import { supabase } from '@/services/supabase';
-// import SearchComponent from '@/components/SearchComponent.vue';
+
 
 const recipes = ref([]);
 const selectedCategory = ref('');

@@ -26,22 +26,22 @@ import Propositions from '@/components/Propositions.vue';
 
 
 <style scoped>
-/* Main container with background image and overlay */
+
 .main-container {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 100px); /* Adjust this value based on footer height */
-  width: 100%; /* Full viewport width */
+  min-height: calc(100vh - 100px); 
+  width: 100%; 
   padding: 20px;
   text-align: center;
-  color: #fff; /* Text color for readability */
+  color: #fff; 
   background: url('https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat fixed;
 }
 
-/* Dark overlay to improve text readability */
+
 .main-container::before {
   content: "";
   position: absolute;

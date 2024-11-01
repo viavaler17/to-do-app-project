@@ -12,7 +12,6 @@
       <router-link to="/SignUpByValeria">Sign up</router-link>
     </div>
   </div>
-
   </template>
   
   <script setup>
