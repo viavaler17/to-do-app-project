@@ -10,7 +10,9 @@ import FooterComponent from './components/FooterComponent.vue';
 <template>
         <HeaderComponent></HeaderComponent>
         <NavbarComponent/>
-        <FooterComponent></FooterComponent>
+        <div id="app">
+    <FooterComponent />
+  </div>
 </template>
 
 
@@ -19,5 +21,11 @@ import FooterComponent from './components/FooterComponent.vue';
     background-color: white;
     color: green;
 
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
 }
 </style>

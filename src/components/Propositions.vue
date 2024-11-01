@@ -1,10 +1,9 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { supabase } from '@/services/supabase';
-import { useRouter } from 'vue-router'; 
 
 const randomRecipes = ref([]); 
-const router = useRouter(); 
+
 
 
 const fetchRandomRecipes = async () => {
@@ -22,10 +21,6 @@ const fetchRandomRecipes = async () => {
   randomRecipes.value = shuffledRecipes.slice(0, 4); 
 };
 
-
-const openRecipe = (recipeId) => {
-  router.push({ name: 'RecipeDetail', params: { id: recipeId } }); 
-};
 
 onMounted(() => {
   fetchRandomRecipes();

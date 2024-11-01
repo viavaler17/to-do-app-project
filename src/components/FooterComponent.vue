@@ -19,42 +19,40 @@ import { RouterLink } from 'vue-router';
 </template>
 
 <style scoped>
-.wrapper{
-    position: relative;
-    min-height: 100vh;
+html, body {
+    height: 100%; /* Ensure full height for the body */
+    margin: 0;    /* Remove default margin */
 }
 
-.footer{
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Use min-height to allow the footer to stick at the bottom */
+} 
+
+.footer {
     display: flex;
     flex-direction: column;
     background-color: #00686B;
     color: white;
     align-items: center;
-    
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
     padding: 20px;
+    margin-top: auto; /* Push the footer to the bottom of the page */
 }
 
-img{
+img {
     height: 20px;
     width: 20px;
 }
 
-#follow-us a{
+#follow-us a {
     display: flex;
     align-items: center;
-    gap: 10px
+    gap: 10px;
 }
 
-a:link{
+a:link, a:visited {
     color: white;
 }
-
-a:visited{
-    color: white;
-}
-
 </style>
