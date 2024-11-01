@@ -8,46 +8,63 @@ const props = defineProps(['filteredRecipes']);
   
       <li v-for="recipe in filteredRecipes" :key="recipe.id" class="recipes-listed-each"
         @click="$router.push({ name: 'SingularRecipe', params: { id: recipe.id } })">
-        <div class="favouriteButton">
-          <h2>{{ recipe.title }}</h2>
-          <!-- <button @click="favouritedButton(recipe)">Make favourite</button> -->
-        </div>
         
         <img :src="recipe.imageURL" :alt="recipe.title" class="recipe-img"/>
-        
-        <p>{{ recipe.description }}</p>
-        
-        <p>Prep Time: {{ recipe.prep_time }} minutes</p>
-        
-        <ul class="ingredient-list">
+
+        <div class="title-preptime">
+          <h3>{{ recipe.title }}</h3>
+          <p>Preparation time: {{ recipe.prep_time }} minutes</p>
+          <!-- <button @click="favouritedButton(recipe)">Make favourite</button> -->
+        </div>
+
+        <!-- <p>{{ recipe.description }}</p> -->
+        <!-- <ul class="ingredient-list">
           <li v-for="(ingredient, index) in recipe.ingredients" :key="index">
             {{ ingredient.ingredient }}: {{ ingredient.amount }} {{ ingredient.unit }}
           </li>
-        </ul>
-
-     </li>
+        </ul> -->
+      </li>
     </ul>
 </template>
 
 <style scoped>
 .recipes-listed{
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-evenly;
+  gap: 20px;
+  padding: 0px;
+  align-content: flex-start;
+
   list-style-type: none;
+
+  width: 790px;
 }
 
-.favouriteButton{
-  display: flex;
-  justify-content: space-between;
+h3{
+  font-weight: 500;
 }
 
 .recipes-listed-each{
-  padding: 50px 0px;
-  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: max-content;
+  background-color: #d6d6d63f;
+}
+
+.recipes-listed-each:hover{
+  transition: 0.3s;
+  opacity: 0.7;
+}
+
+.title-preptime{
+  padding: 10px;
 }
 
 .recipe-img{
-  width: 100px;
-  height: 100px;
+  width: 250px;
+  height: 250px;
 }
 </style>

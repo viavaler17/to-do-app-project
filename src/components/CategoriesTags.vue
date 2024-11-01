@@ -1,36 +1,69 @@
 <script setup>
-import { defineEmits } from 'vue';
+import { defineEmits, ref } from 'vue';
 
-const emit = defineEmits(['categorySelected']);
+const emit = defineEmits(['categorySelected', 'tagsUpdated']);
+
+
+//CATEGORIES: selecting and keeping active for CSS
+const activeCategory = ref([]);
 
 const selectCategory = (category) => {
-  emit('categorySelected', category);
+  activeCategory.value = category;
+  emit('categorySelected', activeCategory.value);
+};
+
+const isCategoryActive = (category) => {
+  return activeCategory.value === category;
+};
+
+//TAGS: selecting and keeping active for CSS
+const selectedTags = ref([]);
+
+const toggleTag = (tag) => {
+  if (selectedTags.value.includes(tag)) {
+    selectedTags.value.splice(selectedTags.value.indexOf(tag), 1);
+  } else {
+    selectedTags.value.push(tag);
+  }
+  emit('tagsUpdated', selectedTags.value);
+};
+
+const isTagActive = (tag) => {
+  return selectedTags.value.includes(tag);
 };
 </script>
 
 <template>
-    <div class="container">
-      
-      <div class="categories">
-        <h3>Categories</h3>
-        <ul>
-          <li @click="selectCategory('Breakfast')">Breakfast</li>
-          <li @click="selectCategory('Lunch')">Lunch</li>
-          <li @click="selectCategory('Dinner')">Dinner</li>
-          <li @click="selectCategory('')">All</li>
+  <div class="container">
+    <div>
+      <h2>Categories</h2>
+      <ul class="categories">
+        <li 
+          v-for="category in ['Breakfast', 'Lunch', 'Dinner', '']" 
+          :key="category" 
+          @click="selectCategory(category)"
+          :class="{ active: isCategoryActive(category) }"
+          class="category"
+        >
+          {{ category || 'All' }}
+        </li>
+      </ul>
+    </div>
+
+      <div>
+        <h2>Tags</h2>
+        <ul class="tags">
+          <li 
+            v-for="tag in ['#vegetarian', '#quick']" 
+            :key="tag" 
+            @click="toggleTag(tag)" 
+            :class="{ active: isTagActive(tag) }" 
+            class="tag"
+          >
+            {{ tag }}
+          </li>
         </ul>
       </div>
-      
-      <div class="tags">
-        <h3>Tags</h3>
-        <div>
-          <p @click="selectCategory('Vegetarian')" class="tag">#vegetarian</p>
-          <p @click="selectCategory('Vegan')" class="tag">#vegan</p>
-          <p @click="selectCategory('High-Protein')" class="tag">#high-Protein</p>
-          <p @click="selectCategory('Under-15-min')" class="tag">#under-15-Min</p>
-        </div>
-      </div>
-
     </div>
   </template>
   
@@ -38,64 +71,54 @@ const selectCategory = (category) => {
   .container{
     display: flex;
     flex-direction: column;
-  }
-/* 
-  .sidebar {
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 150px;
   }
 
-  h3 {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 10px;
+  h2{
+    font-weight: 800;
   }
 
-  .categories, .tags {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 10px;
   }
 
-  .categories li {
-    padding: 10px 15px;
-    margin: 5px 0;
-    background-color: #ffffff;
-    border-radius: 8px;
+  li{
     cursor: pointer;
-    transition: all 0.3s ease;
-    color: #4a4a4a;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  .categories li:hover {
-      background-color: #ffeae0;
-    color: #00686B;
-    transform: translateY(-2px);
+  .category{
+    border-radius: 10px;
+    padding: 8px 16px;
+    margin: 4px 2px;
+    display: inline-block;
   }
 
-  .tags {
-    display: flex;
-    flex-direction: column;
+  .category:hover, 
+  .category.active{
+    opacity: 1;
+    transition: opacity 0.4s;
+    background-color: #00686B;
+    color: white;
   }
 
   .tag {
-    padding: 10px 15px;
-    margin: 5px 0;
-    background-color: #ffffff;
-    border: 2px solid #90EE90;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: #4a4a4a;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+    background-color: #FF6F61;
+    opacity: 0.6;
+    border-radius: 10px;
+    padding: 8px 16px;
+    margin: 4px 2px;
+    display: inline-block;
   }
 
   .tag:hover {
-    background-color: #faffe0;
-    color: #4a4a4a;
-    transform: translateY(-2px);
-  } */
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+
+  .tag.active {
+    opacity: 1;
+  }
 </style>
