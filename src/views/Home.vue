@@ -1,11 +1,42 @@
 
 <script setup>
 import Propositions from '@/components/Propositions.vue';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { supabase } from '@/services/supabase';
+
+const router = useRouter();
+const searchQuery = ref('');
+
+async function searchRecipe() {
+  const searchTerm = searchQuery.value.trim();
+  
+  if (searchTerm) {
+    const { data, error } = await supabase
+      .from('recipes')
+      .select('id')
+      .ilike('title', searchTerm); 
+
+    if (error) {
+      console.error('Search error:', error);
+      return;
+    }
+
+    if (data && data.length > 0) {
+      const recipeId = data[0].id;
+      router.push({ name: 'SingularRecipe', params: { id: recipeId } });
+    } else {
+      alert('No recipe found with that title');
+    }
+  } else {
+    alert('Please enter a search term');
+  }
+}
+
 </script>
 
 <template>
   <div class="main-container">
-  
     <header class="welcome-header">
       <h1>Cook the World</h1>
       <h2>Recipes made</h2>
@@ -17,8 +48,12 @@ import Propositions from '@/components/Propositions.vue';
     </header>
 
     <div class="search-bar">
-      <input type="text" placeholder="Click here to browse..">
-      <img src="https://cdn-icons-png.flaticon.com/128/3031/3031293.png" alt="search icon">
+      <input type="text" v-model="searchQuery" 
+        placeholder="Click here to browse.." />
+        <img 
+        src="https://cdn-icons-png.flaticon.com/128/3031/3031293.png" 
+        alt="search icon" 
+        @click="searchRecipe"/>
     </div>
     <Propositions />
   </div>
