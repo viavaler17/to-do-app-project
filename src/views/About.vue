@@ -4,7 +4,7 @@
 <template>
     <div class="about-container">
         <h1>About Us</h1>
-        <p>Welcome to Cook the World! 🌍🍽️</p>
+        <p>Welcome to Cook the World! 🌍🍽️</p><br>
         <div class="about-content">
             <img src="https://images.pexels.com/photos/7601413/pexels-photo-7601413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Cooking" class="about-image" />
             <div class="text-content">
