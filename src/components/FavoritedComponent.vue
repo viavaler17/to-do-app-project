@@ -1,10 +1,20 @@
 <template>
-  <div>
-    <button v-if="isLoggedIn" @click="toggleFavorite">
-      {{ isFavorited ? 'Remove from favorites' : 'Favorite' }}
+  <div class="favorite-or-text">
+    <button v-if="isLoggedIn" @click="toggleFavorite"
+    class="favorite-button">
+    {{ isFavorited ? '' : 'Add to favorites' }}
+      <img :src="isFavorited ? 
+      'https://cdn-icons-png.flaticon.com/128/833/833472.png' 
+      : 
+      'https://cdn-icons-png.flaticon.com/128/1077/1077035.png'
+      " 
+      alt="Add/remove from favorites" class="favorite-icon" />
     </button>
+
     <p v-else>
-      Log in / Sign up to add this recipe to your favorites
+      <router-link to="/login" target="_blank" id="login-to-favorite">
+        Log in to add this recipe to your favorites
+      </router-link>
     </p>
   </div>
 </template>
@@ -90,7 +100,36 @@ async function toggleFavorite() {
 </script>
 
 <style scoped>
-*{
-    width: 200px;
+.favorite-or-text{
+  height: 30px;
+  padding: 10px 0px;
+
+  display: flex;
+  align-items: center;
+}
+
+#login-to-favorite{
+  color: #FF6F61;
+  opacity: 0.6;
+}
+
+#login-to-favorite:hover{
+  opacity: 1;
+}
+
+.favorite-button{
+  padding: 10px;
+  border: none;
+  background: none; /* Remove default button styling */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorite-icon{
+  height: 20px;
+  width: 20px;
+  margin: 0 0 0 5px;
 }
 </style>
