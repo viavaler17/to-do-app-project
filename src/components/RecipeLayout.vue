@@ -28,7 +28,32 @@ export default {
 
 <template>
     <li class="recipe-layout">
-        <div class="recipe-text">
+
+      <div class="image-ingredients">
+        <slot name="image">
+          <img :src="imageUrl || 'path/to/default-placeholder.jpg'" alt="Recipe Image" class="recipe-image">
+        </slot>
+
+        <div class="ingredients">
+            <slot name="ingredients">
+              <h3>Ingredients:</h3>  
+              <ul>
+                  <li v-for="(ingredient, index) in ingredients" :key="index" class="ingredients-li">
+                    <div class="ingredient-amount">
+                      <div class="ingredient-name">
+                        {{ ingredient.ingredient }}:
+                      </div>
+                      <div>
+                        {{ ingredient.amount }} {{ ingredient.unit }}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+            </slot>
+        </div>
+      </div>
+
+      <div class="recipe-text">
             <div class="title-time">
                 <slot name="title">
                     <h2>{{ title || 'Default Recipe Title' }}</h2>
@@ -38,57 +63,67 @@ export default {
                     <p>Cooking Time: {{ cookingTime ? cookingTime + ' minutes' : '---' }}</p>
                 </slot>
             </div>
-  
-            <div class="ingredients">
-                <slot name="ingredients">
-                    <ul>
-                        <li v-for="(ingredient, index) in ingredients" :key="index">
-                          {{ ingredient.ingredient }}: {{ ingredient.amount }} {{ ingredient.unit }}
-                        </li>
-                    </ul>
-                </slot>
-            </div>
             
-            <div class="description">
+            <div class="container">
                 <slot name="description">
-                    <p>{{ description || 'Default recipe description.' }}</p>
+                    <p class="description">{{ description || 'Default recipe description.' }}</p>
                 </slot>
             </div>
       </div>
-
-      <slot name="image">
-        <img :src="imageUrl || 'path/to/default-placeholder.jpg'" alt="Recipe Image" class="recipe-image">
-      </slot>
+    
     </li>
   </template>
 
 <style scoped>
 .recipe-layout{
-    list-style-type: none;
-    margin: 100px auto;
-    padding: 50px;
-    width: 1000px;
+    max-width: 1040px;
     height: max-content;
-
+    padding: 20px;
 
     display: flex;
-    justify-content: space-between;
     gap: 50px;
 
-    background-color: rgba(128, 128, 128, 0.112);
-}
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    box-sizing: border-box;
 
-.recipe-text{
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
+    background-color: grey;
+  }
 
-    max-width: 550px;
-}
+  .recipe-image{
+    width: 300px;
+    height: 300px;
+  }
 
-.recipe-image{
-    max-width: 300px;
-    max-height: 300px;
-}
+  .ingredients{
+    width: 300px;
+    margin: 0px 0px;
+    padding: 0px 0px;
+  }
+
+  .ingredient-amount{
+    column-count: 2;
+  }
+
+  .ingredients-li{
+    margin: 5px 0px;
+    font-size: 16px;
+  }
+
+  .recipe-text{
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+  }
+
+  h3{
+    font-weight: 600;
+  }
+
+  .container {
+    max-width: 790px;
+    margin: 0 auto;
+    padding: 0;
+    overflow-x: hidden;
+  }
 
 </style>
