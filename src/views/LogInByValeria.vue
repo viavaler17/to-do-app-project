@@ -36,6 +36,22 @@
       console.error('Error logging in:', error);
     }
   };
+
+//   const handleLogin = async () => {
+//   errorMessage.value = '';
+//   try {
+//     const user = await login(email.value, password.value);
+//     if (user) {
+//       console.log('User logged in:', user);
+//       router.push('/profile');
+//     } else {
+//       errorMessage.value = 'Login succeeded but no user data was returned.';
+//     }
+//   } catch (error) {
+//     errorMessage.value = error.message;
+//     console.error('Error logging in:', error);
+//   }
+// };
   </script>
 
   <style scoped>
