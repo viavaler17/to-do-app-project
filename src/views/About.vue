@@ -7,7 +7,7 @@
         <p>Welcome to Cook the World! 🌍🍽️</p><br>
         <div class="about-content">
             <img src="https://images.pexels.com/photos/7601413/pexels-photo-7601413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Cooking" class="about-image" />
-            <div class="text-content">
+            <div class="content">
                 <h2>Our Mission</h2>
                 <p>
                     At Cook the World, we believe that cooking should be fun and accessible for everyone! Our platform is dedicated to sharing a variety of recipes that span across cultures and cuisines. Whether you are a beginner or a seasoned chef, there's something here for you!
@@ -54,7 +54,7 @@ h2 {
     border-radius: 8px;
 }
 
-.text-content {
+.content {
     text-align: left; /* Align text to the left for readability */
 }
 

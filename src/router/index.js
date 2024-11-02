@@ -3,7 +3,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/views/Home.vue';
 import BrowseRecipes from '@/views/BrowseRecipes.vue';
 import About from '@/views/About.vue';
-import Contact from '@/views/Contact.vue';
 import Login from '@/views/Login.vue';
 import ProfileMain from '@/views/LoggedIn/ProfileMain.vue';
 import Favourited from '@/views/LoggedIn/Favourited.vue';
@@ -15,11 +14,11 @@ import SingularRecipe from '@/views/SingularRecipe.vue';
 import SignUpByValeria from '@/views/SignUpByValeria.vue';
 
 
+
 const routes = [
     { path: '/home', name: 'Home', component: Home },
     { path: '/browserecipes', name: 'Browse Recipes', component: BrowseRecipes },
     { path: '/about', name: 'About', component: About},
-    { path: '/contact', name: 'Contact', component: Contact },
     { path: '/login', name: 'Log in', component: Login },
     { path: '/profile', name: 'Profile', component: ProfileMain},
     { path: '/favourited', name: 'Favourited recipes', component: Favourited },

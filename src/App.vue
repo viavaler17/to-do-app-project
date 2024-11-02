@@ -10,7 +10,7 @@ import FooterComponent from './components/FooterComponent.vue';
 <template>
         <HeaderComponent></HeaderComponent>
         <NavbarComponent/>
-        <div id="app">
+        <div id="footer-design">
     <FooterComponent />
   </div>
 </template>
@@ -23,12 +23,12 @@ import FooterComponent from './components/FooterComponent.vue';
 
 }
 
-#app {
+#footer-design {
     display: flex;
     flex-direction: column;
     
 }
-#app[data-v-7a7a37b1] {
+#footer-design[data-v-7a7a37b1] {
    position: relative;
     width: 100%;
     height: unset;
@@ -39,3 +39,4 @@ import FooterComponent from './components/FooterComponent.vue';
     height: unset;
     bottom: 0; */
 </style>
+
