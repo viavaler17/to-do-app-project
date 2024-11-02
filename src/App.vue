@@ -26,6 +26,16 @@ import FooterComponent from './components/FooterComponent.vue';
 #app {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    
 }
+#app[data-v-7a7a37b1] {
+   position: relative;
+    width: 100%;
+    height: unset;
+    bottom: 0; 
+}
+/* position: absolute;
+    width: 100%;
+    height: unset;
+    bottom: 0; */
 </style>
