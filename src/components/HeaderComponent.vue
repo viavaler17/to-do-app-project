@@ -2,7 +2,7 @@
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 
-const isAuthenticated = ref(false);
+const isAuthenticated = ref(true);
 
 </script>
 

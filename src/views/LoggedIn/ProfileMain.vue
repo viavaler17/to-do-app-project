@@ -1,5 +1,6 @@
 
 <script setup>
+import Propositions from '@/components/Propositions.vue';
 import { RouterLink } from 'vue-router';
 </script>
 
@@ -9,7 +10,6 @@ import { RouterLink } from 'vue-router';
             <h1>Hello!</h1>
             <p>Select from the options below:</p>
         </div>
-
         <ul class="options-list">
             <li><router-link to="/addrecipe">Add a Recipe</router-link></li><br>
             <li><router-link to="/profiledetails">Your Details</router-link></li><br>
@@ -17,52 +17,71 @@ import { RouterLink } from 'vue-router';
 
         </ul>
     </div>
+    <div class="random-recipes">
+        <p class="suggestions-title">You might also like:</p>
+        <Propositions />
+    </div>
 </template>
 
 <style scoped>
 .profile-container {
-    max-width: 600px; 
-    margin: 0 auto; 
-    padding: 20px;
-    text-align: center; 
-    background-color: #f0f8ff; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .greetings {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .greetings h1 {
-    color: #00686B; 
-    font-size: 2.5rem; 
+    color: #00686B;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
 .greetings p {
-    font-size: 1.2rem; /* Slightly larger paragraph */
-    color: #333; /* Dark text for contrast */
+    font-size: 1.1rem;
+    color: #555;
 }
 
 .options-list {
-    list-style: none; /* Remove default list styling */
-    padding: 0; /* Remove padding */
+    list-style: none;
+    padding: 0;
 }
 
 .options-list li {
-    margin: 15px 0; /* Space between items */
+    margin: 20px 0;
 }
 
 .options-list li a {
-    text-decoration: none; /* No underline */
-    color: #fff; /* White text for links */
-    background-color: #FF6F61; /* Coral background for links */
-    padding: 10px 20px; /* Padding for clickable area */
-    border-radius: 5px; /* Rounded corners for buttons */
-    transition: background-color 0.3s; /* Smooth background transition */
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    background-color: #FF6F61;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .options-list li a:hover {
-    background-color: #FF4C3B; /* Darker shade on hover */
+    background-color: #FF4C3B;
+    transform: translateY(-2px);
+}
+
+.suggestions-title {
+    font-size: 1.3rem;
+    color: #00686B;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
 }
 </style>
