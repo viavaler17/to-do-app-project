@@ -12,7 +12,7 @@ import { RouterLink } from 'vue-router';
 
         <ul class="options-list">
             <li><router-link to="/addrecipe">Add a Recipe</router-link></li><br>
-            <li><router-link to="/profiledetails">Your Details</router-link></li>
+            <li><router-link to="/profiledetails">Your Details</router-link></li><br>
             <li><router-link to="/favourited">Favourited recipes</router-link></li>
 
         </ul>

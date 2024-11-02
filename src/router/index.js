@@ -14,6 +14,7 @@ import SingularRecipe from '@/views/SingularRecipe.vue';
 import SignUpByValeria from '@/views/SignUpByValeria.vue';
 
 
+
 const routes = [
     { path: '/home', name: 'Home', component: Home },
     { path: '/browserecipes', name: 'Browse Recipes', component: BrowseRecipes },

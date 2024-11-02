@@ -39,3 +39,4 @@ import FooterComponent from './components/FooterComponent.vue';
     height: unset;
     bottom: 0; */
 </style>
+
