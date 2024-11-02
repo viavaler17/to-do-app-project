@@ -1,8 +1,8 @@
 <template>
     <div>
-      <h1>Logout</h1>
-      <button @click="handleLogout">Logout</button>
-      <p v-if="message">{{ message }}</p>
+      <h1>Logout</h1><br>
+      <button @click="handleLogout">Logout</button><br>
+      <p v-if="message">{{ message }}</p><br>
     </div>
   </template>
   

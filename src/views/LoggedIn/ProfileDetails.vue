@@ -12,18 +12,18 @@ import LogOutByValeria from '../LogOutByValeria.vue';
         <img src="https://img.freepik.com/free-vector/smiling-girl-portrait-casual-clothing-cartoon-flat-style-isolated-white-happy-teenager-vector_90220-2635.jpg?t=st=1730465250~exp=1730468850~hmac=f4eb3a800d384c749d9564dd842c97e2ebce5575ec165b9af0a51c2b37b786b1&w=740" alt="Profile Picture" />
       </div>
   
-      <!-- Display Email -->
+     
       <div class="profile-info">
         <label>Email:</label>
         <p>user@example.com</p>
       </div>
   
-      <!-- Display Password (masked for privacy) -->
+      
       <div class="profile-info">
         <label>Password:</label>
         <p>********</p>
       </div>
-    </div>
+    </div><br>
     <LogOutByValeria></LogOutByValeria>
   </template>
   

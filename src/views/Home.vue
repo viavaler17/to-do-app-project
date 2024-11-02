@@ -9,13 +9,13 @@ const router = useRouter();
 const searchQuery = ref('');
 
 async function searchRecipe() {
-  const searchTerm = searchQuery.value.trim();
+  const recipeTitle = searchQuery.value.trim();
   
-  if (searchTerm) {
+  if (recipeTitle) {
     const { data, error } = await supabase
       .from('recipes')
       .select('id')
-      .ilike('title', searchTerm); 
+      .ilike('title', recipeTitle); 
 
     if (error) {
       console.error('Search error:', error);

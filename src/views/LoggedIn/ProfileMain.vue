@@ -1,10 +1,11 @@
 
 <script setup>
+import { RouterLink } from 'vue-router';
 </script>
 
 <template>
     <div class="profile-container">
-        <div class="profile-hello">
+        <div class="greetings">
             <h1>Hello!</h1>
             <p>Select from the options below:</p>
         </div>
@@ -12,6 +13,8 @@
         <ul class="options-list">
             <li><router-link to="/addrecipe">Add a Recipe</router-link></li><br>
             <li><router-link to="/profiledetails">Your Details</router-link></li>
+            <li><router-link to="/favourited">Favourited recipes</router-link></li>
+
         </ul>
     </div>
 </template>
@@ -27,16 +30,16 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
 
-.profile-hello {
+.greetings {
     margin-bottom: 30px;
 }
 
-.profile-hello h1 {
+.greetings h1 {
     color: #00686B; 
     font-size: 2.5rem; 
 }
 
-.profile-hello p {
+.greetings p {
     font-size: 1.2rem; /* Slightly larger paragraph */
     color: #333; /* Dark text for contrast */
 }
