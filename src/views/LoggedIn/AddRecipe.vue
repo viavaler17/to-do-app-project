@@ -65,6 +65,7 @@ const updateCategories = () => {
 </script>
 
 <template>
+  <div class="add-recipe-container">
     <div class="add-recipe">
       <h2>Add or Update a Recipe</h2>
       <form @submit.prevent="handleSubmit">
@@ -138,7 +139,119 @@ const updateCategories = () => {
         <button type="submit">Submit</button>
       </form>
     </div>
+    <div class="image-container">
+      <img src="https://images.pexels.com/photos/2751755/pexels-photo-2751755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Ingredients" />
+    </div>
+  </div>
   </template>
 
 <style scoped>
+.add-recipe-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 100%;
+  margin: 40px 0 40px 100px; 
+  padding: 10px;
+  gap: 200px;
+}
+
+.add-recipe {
+  flex: 1; 
+  max-width: 750px; 
+}
+
+.image-container {
+  flex: 1; 
+  max-width: 530px; 
+}
+
+.image-container img {
+  width: 100%; 
+  height: auto; 
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  text-align: center;
+  color: #ff6f61;
+  font-weight: 800;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+li input[type="text"],
+li input[type="number"],
+li select {
+  flex: 1;
+  margin-right: 10px;
+}
+
+li button {
+  background-color: #dc3545;
+}
+
+li button:hover {
+  background-color: #c82333;
+}
+
+h4, h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
 </style>
