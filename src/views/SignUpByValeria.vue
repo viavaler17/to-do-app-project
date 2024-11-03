@@ -9,8 +9,8 @@
         <button type="submit">Sign Up</button>
       </form>
     </div>
+    <Propositions></Propositions>
   </div>
-  <Propositions></Propositions>
   </template>
   
   <script setup>
@@ -36,20 +36,30 @@ import Propositions from '@/components/Propositions.vue';
 
   <style scoped>
   .auth-container {
-  display: flex;
+    display: flex;
+  flex-direction: column; 
   justify-content: center;
-  align-items: center;
+  align-items: center; 
   height: 100vh;
-  background-color: #f0f2f5;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
 }
 
 .auth-card {
-  width: 300px;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  padding: 2rem;
+  margin: 80px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   background-color: #fff;
   text-align: center;
+
+  /* width: 350px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  text-align: center;
+  transition: transform 0.3s; */
 }
 
 h1 {
@@ -74,7 +84,8 @@ button {
   border: none;
   background-color: #28a745;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
 }
 
