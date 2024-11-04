@@ -3,6 +3,7 @@ import { ref, onMounted, computed } from 'vue';
 import CategoriesTags from '@/components/CategoriesTags.vue';
 import RecipesListed from '@/components/RecipesListed.vue';
 import { supabase } from '@/services/supabase';
+import ProfileBlueBar from '@/components/ProfileBlueBar.vue';
 
 const recipes = ref([]);
 const selectedCategory = ref('');
@@ -85,26 +86,25 @@ onMounted(() => {
 </script>
 
 <template>
-    <h1>Your favorited recipes</h1>
-  <div class="container">
-    <CategoriesTags @categorySelected="selectCategory" @tagsUpdated="selectTags"/>
-    <RecipesListed :filteredRecipes="filteredRecipes" />
+  <ProfileBlueBar/>
+  <div class="container-container">
+    <div class="container">
+        <CategoriesTags @categorySelected="selectCategory" @tagsUpdated="selectTags"/>
+        <RecipesListed :filteredRecipes="filteredRecipes" />
+    </div>
   </div>
 </template>
 
 <style scoped>
-  *{
+  .container-container{
     max-width: 1140px;
-    margin: 50px auto;
+    margin: 0px auto;
     padding: 0 20px;
   }
+  
   .container{
     display: flex;
     gap: 100px;
     justify-content: flex-start;
-  }
-
-  h1{
-    text-align: center;
   }
 </style>
