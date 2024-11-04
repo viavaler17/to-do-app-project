@@ -1,7 +1,9 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive} from 'vue';
 import { supabase } from '@/services/supabase';
 import ProfileBlueBar from '@/components/ProfileBlueBar.vue';
+
+
 
 const form = ref({
   title: '',
@@ -10,6 +12,7 @@ const form = ref({
   ingredients: [],
   description: '',
   category: '[]',
+  tag: []
 });
 
 const addIngredient = () => {
@@ -22,8 +25,33 @@ const removeIngredient = (index) => {
   form.value.ingredients.splice(index, 1);
 };
 
+//initial user state for below functions
+const userState = reactive({
+  isLoggedIn: false,
+  userId: null,
+});
+
+//Listen to authentication state changes and update the user state - same as in FavoritedComponent
+supabase.auth.onAuthStateChange((_event, session) => {
+  if (session) {
+    userState.userId = session.user.id;
+    userState.isLoggedIn = true;
+    console.log("User ID for favoriting:", userState.userId);
+  } else {
+    userState.userId = null;
+    userState.isLoggedIn = false;
+    console.warn("No user logged in for favoriting");
+  }
+});
+
 const handleSubmit = async () => {
   try {
+    if (!userState.isLoggedIn || !userState.userId) {
+      console.warn('User not authenticated.');
+      alert('Please log in to add a recipe');
+      return; 
+    }
+    
     const category = JSON.parse(form.value.category);
 
     const { data, error } = await supabase
@@ -34,13 +62,16 @@ const handleSubmit = async () => {
         prep_time: form.value.prep_time,
         ingredients: form.value.ingredients,
         description: form.value.description,
-        category
+        category,
+        tag: form.value.tag,
+        added_by: userState.userId
       }]);
 
     if (error) {
       console.error('Error adding recipe:', error);
       return;
     }
+    alert("Recipe added!");
     console.log('Recipe added:', data);
 
     //to clear the form after submit
@@ -51,7 +82,11 @@ const handleSubmit = async () => {
       ingredients: [],
       description: '',
       category: '[]',
+      tag: []
     };
+
+    categorySelection.value = [];
+    
   } catch (err) {
     console.error('Error parsing JSON fields:', err);
   }
@@ -61,80 +96,112 @@ const categorySelection = ref([]);
 
 const updateCategories = () => {
   form.value.category = JSON.stringify(categorySelection.value);
-//   form.value.category = [];
+};
+
+const updateTags = (tag) => {
+  const index = form.value.tag.indexOf(tag);
+  if (index === -1) {
+    form.value.tag.push(tag);
+  } else {
+    form.value.tag.splice(index, 1);
+  }
 };
 </script>
 
+
+
 <template>
+  <ProfileBlueBar></ProfileBlueBar>
   <div class="add-recipe-container">
     <div class="add-recipe">
       <h2>Add or Update a Recipe</h2>
       <form @submit.prevent="handleSubmit">
         <div>
           <label for="title">Title:</label>
-          <input type="text" v-model="form.title" required />
+          <input type="text" v-model="form.title" 
+          maxlength="24" placeholder="maximum of 24 characters (including spaces)" required />
         </div>
+        
         <div>
           <label for="imageURL">Image URL:</label>
-          <input type="url" v-model="form.imageURL" />
+          <input type="url" v-model="form.imageURL" placeholder="tip: square images result in the best layout" required/>
         </div>
+        
         <div>
           <label for="prep_time">Prep Time (in minutes):</label>
-          <input type="number" v-model="form.prep_time" />
+          <input type="number" v-model="form.prep_time" min="0" required/>
         </div>
 
         <div>
-        <h4>Ingredients:</h4>
-        <ul>
-          <li v-for="(ingredient, index) in form.ingredients" :key="index">
-            <input type="text" v-model="ingredient.ingredient" placeholder="Ingredient Name" required />
-            <input type="number" v-model="ingredient.amount" placeholder="Amount" required />
-            <select v-model="ingredient.unit">
-              <option value="gram(s)">gram(s)</option>
-              <option value="milliliter(s)">mililiter(s)</option>
-              <option value="unit(s)">unit(s)</option>
-            </select>
-            <button type="button" @click="removeIngredient(index)">Remove</button>
-          </li>
-          <button type="button" @click="addIngredient">Add another ingredient</button>
-        </ul>
-      </div>
+          <h4>Ingredients:</h4>
+          <ul>
+            <li v-for="(ingredient, index) in form.ingredients" :key="index">
+              <input type="text" v-model="ingredient.ingredient" 
+              placeholder="ingredient" maxlength="50" required/>
+              
+              <input type="number" v-model="ingredient.amount" placeholder="amount" min="0" step="0.01" required/>
+              <select v-model="ingredient.unit">
+                <option value="gram(s)">gram(s)</option>
+                <option value="milliliter(s)">milliliter(s)</option>
+                <option value="unit(s)">unit(s)</option>
+                <option value="tablespoon(s)">tablespoon(s)</option>
+                <option value="teaspoon(s)">teaspoon(s)</option>
+                <option value="cup(s)">cup(s)</option>
+              </select>
+              <button type="button" @click="removeIngredient(index)">Remove</button>
+            </li>
+            <button type="button" @click="addIngredient">Add another ingredient</button>
+          </ul>
+        </div>
 
         <div>
           <label for="description">Description:</label>
-          <textarea v-model="form.description"></textarea>
+          <textarea v-model="form.description" class="description"
+          minlength="100" placeholder="add a minimum of 100 characters (including spaces)" required></textarea>
         </div>
 
 
         <div>
-        <h3>Categories:</h3>
-        <label>
+          <h3>Categories:</h3>
+          <label>
+              <input 
+              type="checkbox" 
+              value="Breakfast" 
+              v-model="categorySelection" 
+              @change="updateCategories" 
+              />
+              Breakfast
+          </label>
+          <label>
+              <input 
+              type="checkbox" 
+              value="Lunch" 
+              v-model="categorySelection" 
+              @change="updateCategories" 
+              />
+              Lunch
+          </label>
+          <label>
+              <input 
+              type="checkbox" 
+              value="Dinner" 
+              v-model="categorySelection" 
+              @change="updateCategories" 
+              />
+              Dinner
+          </label>
+        </div>
+
+        <div>
+          <h3>Tags:</h3>
+          <label>
             <input 
-            type="checkbox" 
-            value="Breakfast" 
-            v-model="categorySelection" 
-            @change="updateCategories" 
+              type="checkbox" 
+              @change="updateTags('vegetarian')" 
+              :checked="form.tag.includes('vegetarian')"
             />
-            Breakfast
-        </label>
-        <label>
-            <input 
-            type="checkbox" 
-            value="Lunch" 
-            v-model="categorySelection" 
-            @change="updateCategories" 
-            />
-            Lunch
-        </label>
-        <label>
-            <input 
-            type="checkbox" 
-            value="Dinner" 
-            v-model="categorySelection" 
-            @change="updateCategories" 
-            />
-            Dinner
-        </label>
+            Vegetarian
+          </label>
         </div>
 
         <button type="submit">Submit</button>
@@ -254,5 +321,14 @@ h4, h3 {
   margin-top: 20px;
   margin-bottom: 10px;
   color: #333;
+}
+
+::placeholder{
+  font-size: 13px;
+  font-family: 'Arial';
+}
+
+.description{
+  font-family: Arial, Helvetica, sans-serif;
 }
 </style>

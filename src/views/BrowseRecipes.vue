@@ -67,7 +67,7 @@ onMounted(() => {
 <style scoped>
   .container-container{
     max-width: 1140px;
-    margin: 100px auto;
+    margin: 70px auto;
     padding: 0 20px;
   }
   .container{
