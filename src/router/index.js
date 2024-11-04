@@ -12,6 +12,8 @@ import NotFound from '@/views/NotFound.vue';
 import AddRecipe from '@/views/LoggedIn/AddRecipe.vue';
 import SingularRecipe from '@/views/SingularRecipe.vue';
 import SignUpByValeria from '@/views/SignUpByValeria.vue';
+import AddedRecipes from '@/views/LoggedIn/AddedRecipes.vue';
+import EditAddedRecipe from '@/views/LoggedIn/EditAddedRecipe.vue';
 
 
 
@@ -25,9 +27,10 @@ const routes = [
     { path: '/shippinglist', name: 'Shopping List', component: ShoppingList },
     { path: '/profiledetails', name: 'Profile details', component: ProfileDetails },
     { path: '/addrecipe', name: 'Add recipe', component: AddRecipe },
-    { path: '/:pathMatch(.*)*', name: 'Not Found', component: NotFound },
+    { path: '/addedrecipes', name: 'AddedRecipes', component: AddedRecipes },
     { path: '/recipe/:id', name: 'SingularRecipe', component: SingularRecipe },
     { path: '/:pathMatch(.*)*', name: 'Not Found', component: NotFound },
+    { path: '/edit/:id', name: 'EditAddedRecipe', component: EditAddedRecipe },
     { path: '/signupbyvaleria', name: 'Sign Up By Valeria', component: SignUpByValeria },
   ];
 

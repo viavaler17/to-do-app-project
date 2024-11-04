@@ -11,10 +11,10 @@ import { RouterLink } from 'vue-router';
             <p>Select from the options below:</p>
         </div>
         <ul class="options-list">
-            <li><router-link to="/addrecipe">Add a Recipe</router-link></li><br>
-            <li><router-link to="/profiledetails">Your Details</router-link></li><br>
             <li><router-link to="/favourited">Favourited recipes</router-link></li>
-
+            <li><router-link to="/addrecipe">Add a Recipe</router-link></li>
+            <li><router-link to="/addedrecipes">Manage added recipes</router-link></li>
+            <li><router-link to="/profiledetails">Your Details</router-link></li>
         </ul>
     </div>
     <div class="random-recipes">
@@ -26,7 +26,7 @@ import { RouterLink } from 'vue-router';
 <style scoped>
 .profile-container {
     max-width: 600px;
-    margin: 40px auto;
+    margin: 70px auto;
     padding: 25px;
     background-color: #ffffff;
     border-radius: 12px;

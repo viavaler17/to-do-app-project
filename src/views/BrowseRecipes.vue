@@ -56,16 +56,18 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container">
-    <CategoriesTags @categorySelected="selectCategory" @tagsUpdated="selectTags"/>
-    <RecipesListed :filteredRecipes="filteredRecipes" />
+  <div class="container-container">
+    <div class="container">
+      <CategoriesTags @categorySelected="selectCategory" @tagsUpdated="selectTags"/>
+      <RecipesListed :filteredRecipes="filteredRecipes" />
+    </div>
   </div>
 </template>
 
 <style scoped>
-  *{
+  .container-container{
     max-width: 1140px;
-    margin: 50px auto;
+    margin: 70px auto;
     padding: 0 20px;
   }
   .container{

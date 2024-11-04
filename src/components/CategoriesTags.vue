@@ -89,6 +89,9 @@ const isTagActive = (tag) => {
   }
 
   .category{
+    color: white;
+    background-color: #00686B;
+    opacity: 0.6;
     border-radius: 10px;
     padding: 8px 16px;
     margin: 4px 2px;

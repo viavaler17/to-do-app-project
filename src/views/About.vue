@@ -27,9 +27,10 @@
 
 <style scoped>
 .about-container {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 30px;
+    max-width: 1140px;
+    /* changed the max-width and margin to match other views so teh screen doesn't jump */
+    margin: 70px auto;
+    padding: 0 20px;
     background-color: #ffffff;
 }
 
