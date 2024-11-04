@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="logout-position">
       <h1>Logout</h1><br>
       <button @click="handleLogout">Logout</button><br>
       <p v-if="message">{{ message }}</p><br>
@@ -30,4 +30,12 @@
   </script>
   
   <style scoped>
+  button{
+  display: block;
+  margin: auto;
+  }
+
+  h1{
+    text-align: center;
+  }
   </style>

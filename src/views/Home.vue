@@ -49,7 +49,7 @@ async function searchRecipe() {
 
     <div class="search-bar">
       <input type="text" v-model="searchQuery" 
-        placeholder="Click here to browse.." />
+        placeholder="Type here your recipe title..." />
         <img 
         src="https://cdn-icons-png.flaticon.com/128/3031/3031293.png" 
         alt="search icon" 
@@ -105,6 +105,7 @@ async function searchRecipe() {
   font-size: 2.5rem;
   color: #FFEB3B; /* Bright color for contrast */
   margin: 10px 0;
+  font-weight: 800;
 }
 
 .welcome-header h2 {

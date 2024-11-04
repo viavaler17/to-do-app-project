@@ -25,7 +25,9 @@ export const login = async (email, password) => {
 
 
 export const logout = async () => {
+  console.log('Attempting to log out with');
   const { error } = await supabase.auth.signOut();
+  console.log('Logout response:');
   if (error) throw error;
 };
 

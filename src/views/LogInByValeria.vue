@@ -36,31 +36,15 @@
       console.error('Error logging in:', error);
     }
   };
-
-//   const handleLogin = async () => {
-//   errorMessage.value = '';
-//   try {
-//     const user = await login(email.value, password.value);
-//     if (user) {
-//       console.log('User logged in:', user);
-//       router.push('/profile');
-//     } else {
-//       errorMessage.value = 'Login succeeded but no user data was returned.';
-//     }
-//   } catch (error) {
-//     errorMessage.value = error.message;
-//     console.error('Error logging in:', error);
-//   }
-// };
   </script>
 
   <style scoped>
 .auth-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
 }
 
 /* Auth card styling */
@@ -88,6 +72,7 @@ h1 {
 p {
   color: #666;
   margin-bottom: 1.5rem;
+  font-weight: bold;
 }
 
 /* Input styling */
@@ -114,7 +99,7 @@ button {
   margin-top: 1rem;
   border-radius: 8px;
   border: none;
-  background-color: #6e8efb;
+  background-color: #28a745;
   color: #fff;
   font-size: 18px;
   font-weight: bold;

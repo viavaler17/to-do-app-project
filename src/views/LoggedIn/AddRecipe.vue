@@ -66,263 +66,193 @@ const updateCategories = () => {
 </script>
 
 <template>
-  <ProfileBlueBar/>
+  <div class="add-recipe-container">
+    <div class="add-recipe">
+      <h2>Add or Update a Recipe</h2>
+      <form @submit.prevent="handleSubmit">
+        <div>
+          <label for="title">Title:</label>
+          <input type="text" v-model="form.title" required />
+        </div>
+        <div>
+          <label for="imageURL">Image URL:</label>
+          <input type="url" v-model="form.imageURL" />
+        </div>
+        <div>
+          <label for="prep_time">Prep Time (in minutes):</label>
+          <input type="number" v-model="form.prep_time" />
+        </div>
 
-  <div class="container-container">
-      <div>
-        <form @submit.prevent="handleSubmit">
-          <div class="add-recipe">
-            <li class="recipe-layout">
-              
-              <div class="recipe-leftside">
-          
-                <div class="url-flexbox">
-                  <div>
-                    <img src="https://cdn-icons-png.flaticon.com/128/4598/4598380.png" alt="generic picture icon" class="icon">
-                  </div>
-                  <div class="url-text">
-                    <label for="imageURL">Paste your image URL here:</label>
-                    <br>
-                    <input type="url" v-model="form.imageURL" id="url-input"/>
-                  </div>
-                </div>
-
-                <div class="ingredients">
-                  <div class="ingredients-flexbox">
-                    <img src="https://cdn-icons-png.flaticon.com/128/9862/9862064.png" alt="generic ingredients icon" class="icon">
-                    <h4>Add ingredients here:</h4>
-                  </div>
-                  
-                  <div class="ingredients-text">
-                    <ul>
-                      <li v-for="(ingredient, index) in form.ingredients" :key="index">
-                        <div class="ingredient-each-flex">
-                          <div>
-                            <input id="ingredient-name"
-                            type="text" v-model="ingredient.ingredient" placeholder="ingredient's name" required/>
-
-                            <br>
-                            <input id="ingredient-amount"
-                            type="number" v-model="ingredient.amount" placeholder="amount" required/>
-                          
-                            <select v-model="ingredient.unit" id="ingredient-unit">
-                              <option value="gram(s)">gram(s)</option> 
-                              <option value="milliliter(s)">mililiter(s)</option>
-                              <option value="unit(s)">unit(s)</option>
-                            </select>
-                          </div>
-
-                          <button type="button" @click="removeIngredient(index)" class="remove-button">
-                            <img src="https://cdn-icons-png.flaticon.com/128/1828/1828666.png"
-                              alt="remove ingredient button"class="remove-button-img">
-                          </button>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                  <button type="button" @click="addIngredient" id="add-ingredient-button">Add another ingredient</button>
-                </div>
-              </div>
-
-              <div class="recipe-rightside">
-                <div class="title-time">
-                    <div class="title-flexbox">
-                      <img src="https://cdn-icons-png.flaticon.com/128/5172/5172747.png" alt="generic title icon" class="icon">
-                      <input type="text" v-model="form.title" placeholder="Your recipe's name here" id="recipe-title" required />
-                    </div>
-                    
-                    <div class="time-flexbox">
-                      <img src="https://cdn-icons-png.flaticon.com/128/2784/2784399.png" alt="generic clock icon" class="icon">
-                      <input type="number" v-model="form.prep_time" placeholder="Preparation time (in minutes)" id="prep-time"/>
-                    </div>
-                </div>
-                
-                <div class="description">
-                  <textarea v-model="form.description" placeholder="Instructions and whatever you'd like to share about the recipe.."></textarea>
-                </div>
-              </div>
-            
-            </li>
-
-            <div class="categories">
-              <h3>Categories:</h3>
-              <label>
-                  <input 
-                  type="checkbox" 
-                  value="Breakfast" 
-                  v-model="categorySelection" 
-                  @change="updateCategories" 
-                  />
-                  Breakfast
-              </label>
-              <label>
-                  <input 
-                  type="checkbox" 
-                  value="Lunch" 
-                  v-model="categorySelection" 
-                  @change="updateCategories" 
-                  />
-                  Lunch
-              </label>
-              <label>
-                  <input 
-                  type="checkbox" 
-                  value="Dinner" 
-                  v-model="categorySelection" 
-                  @change="updateCategories" 
-                  />
-                  Dinner
-              </label>
-            </div>
-
-            <button type="submit">Submit</button>
-          </div>
-        </form>
+        <div>
+        <h4>Ingredients:</h4>
+        <ul>
+          <li v-for="(ingredient, index) in form.ingredients" :key="index">
+            <input type="text" v-model="ingredient.ingredient" placeholder="Ingredient Name" required />
+            <input type="number" v-model="ingredient.amount" placeholder="Amount" required />
+            <select v-model="ingredient.unit">
+              <option value="gram(s)">gram(s)</option>
+              <option value="milliliter(s)">mililiter(s)</option>
+              <option value="unit(s)">unit(s)</option>
+            </select>
+            <button type="button" @click="removeIngredient(index)">Remove</button>
+          </li>
+          <button type="button" @click="addIngredient">Add another ingredient</button>
+        </ul>
       </div>
+
+        <div>
+          <label for="description">Description:</label>
+          <textarea v-model="form.description"></textarea>
+        </div>
+
+
+        <div>
+        <h3>Categories:</h3>
+        <label>
+            <input 
+            type="checkbox" 
+            value="Breakfast" 
+            v-model="categorySelection" 
+            @change="updateCategories" 
+            />
+            Breakfast
+        </label>
+        <label>
+            <input 
+            type="checkbox" 
+            value="Lunch" 
+            v-model="categorySelection" 
+            @change="updateCategories" 
+            />
+            Lunch
+        </label>
+        <label>
+            <input 
+            type="checkbox" 
+            value="Dinner" 
+            v-model="categorySelection" 
+            @change="updateCategories" 
+            />
+            Dinner
+        </label>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="image-container">
+      <img src="https://images.pexels.com/photos/2751755/pexels-photo-2751755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Ingredients" />
+    </div>
   </div>
-</template>
+  </template>
 
 <style scoped>
-  .container-container{
-    max-width: 1140px;
-    margin: 0px auto;
-    padding: 0 20px;
-  }
+.add-recipe-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 100%;
+  margin: 40px 0 40px 100px; 
+  padding: 10px;
+  gap: 200px;
+}
 
-  .recipe-layout{
-    max-width: 1040px;
-    height: max-content;
-    padding: 20px;
+.add-recipe {
+  flex: 1; 
+  max-width: 750px; 
+}
 
-    display: flex;
-    gap: 100px;
+.image-container {
+  flex: 1; 
+  max-width: 530px; 
+}
 
-    overflow-x: hidden;
-    box-sizing: border-box;
-  }
+.image-container img {
+  width: 100%; 
+  height: auto; 
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  text-align: center;
+  color: #ff6f61;
+  font-weight: 800;
+}
 
-  .icon{
-    height: 50px;
-  }
+form {
+  display: flex;
+  flex-direction: column;
+}
 
-  .url-flexbox{
-    width: 300px;
-    height: 100px;
+div {
+  margin-bottom: 15px;
+}
 
-    display: flex;
-    gap: 10px;
-  }
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
 
-  #url-input{
-    width: 240px;
-  }
+input[type="text"],
+input[type="url"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
 
-  .ingredients{
-    width: 300px;
-  }
+input[type="checkbox"] {
+  margin-right: 8px;
+}
 
-  .ingredients-flexbox{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 300px;
-    height: 100px;
-  }
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
 
-  .ingredient-each-flex{
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-    padding: 10px;
-    background-color: rgba(128, 128, 128, 0.1);
-    font-size: 16px;
-  }
+button:hover {
+  background-color: #218838;
+}
 
-  .remove-button{
-    padding: 10px;
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
+ul {
+  list-style-type: none;
+  padding: 0;
+}
 
-  .remove-button-img{
-    height: 10px;
-    width: 10px;
-  }
+li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
-  #ingredient-name{
-    border: none;
-    background: none;
-    width: 220px;
-  }
+li input[type="text"],
+li input[type="number"],
+li select {
+  flex: 1;
+  margin-right: 10px;
+}
 
-  #ingredient-amount{
-    border: none;
-    background: none;
-    width: 70px;
-  }
+li button {
+  background-color: #dc3545;
+}
 
-  #add-ingredient-button{
-    margin: 20px;
-    text-align: center;
-  }
+li button:hover {
+  background-color: #c82333;
+}
 
-  .title-flexbox{
-    width: max-content;
-    height: 50px;
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    margin-bottom: 20px;
-  }
-
-  #recipe-title{
-    border: none;
-    margin-bottom: 20px;
-    padding: 10px;
-  }
-
-  .time-flexbox{
-    width: max-content;
-    height: 50px;
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    margin-bottom: 20px;
-  }
-
-  #prep-time{
-    height: 50px;
-    border: none;
-    padding: 10px;
-  }
-
-  .recipe-text{
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      align-items: center;
-      gap: 50px;
-  }
-
-
-  /* .title-time{
-    width: 590px;
-  } */
-
-  h3{
-    font-weight: 600;
-  }
-
-  .container {
-    max-width: 790px;
-    margin: 0 auto;
-    padding: 0;
-    overflow-x: hidden;
-  }
-
+h4, h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
 </style>
