@@ -49,7 +49,7 @@ async function searchRecipe() {
 
     <div class="search-bar">
       <input type="text" v-model="searchQuery" 
-        placeholder="Type here your recipe title..." />
+        placeholder="Type your recipe's title here.." />
         <img 
         src="https://cdn-icons-png.flaticon.com/128/3031/3031293.png" 
         alt="search icon" 
