@@ -29,21 +29,20 @@ export default {
 <template>
     <li class="recipe-layout">
 
-      <div class="image-title-time">
         <slot name="image">
-          <img :src="imageUrl || 'path/to/default-placeholder.jpg'" alt="Recipe Image" class="recipe-image">
+          <img :src="imageUrl || 'path/to/default-placeholder.jpg'" alt="Recipe Image">
         </slot>
 
-        <slot name="title">
-          <h2 class="title">{{ title || 'Default Recipe Title' }}</h2>
-        </slot>
+      <div class="description-text">
+        <div>
+          <slot name="title">
+            <h2 class="title">{{ title || 'Default Recipe Title' }}</h2>
+          </slot>
 
-        <slot name="cooking-time">
-          <p>Cooking Time: {{ cookingTime ? cookingTime + ' minutes' : '---' }}</p>
-        </slot>
-      </div>
-
-      <div class="description-ingredients">
+          <slot name="cooking-time">
+            <p>Cooking Time: {{ cookingTime ? cookingTime + ' minutes' : '---' }}</p>
+          </slot>
+        </div>
         <slot name="description">
             <p class="description">{{ description || 'Default recipe description.' }}</p>
         </slot>
@@ -67,10 +66,10 @@ export default {
 .recipe-layout{
     max-width: 1040px;
     height: max-content;
-    padding: 20px;
+    padding: 40px;
 
     display: flex;
-    gap: 30px;
+    gap: 35px;
 
     overflow-x: hidden;
     box-sizing: border-box;
@@ -78,12 +77,17 @@ export default {
     background-color: #d6d6d63f;
   }
 
-  .recipe-image{
+  
+  img{
     max-width: 300px;
     max-height: 300px;
   }
 
-  .description-ingredients{
+  .description{
+    white-space: pre-wrap;
+  }
+
+  .description-text{
     display: flex;
     flex-direction: column;
     gap: 30px;
