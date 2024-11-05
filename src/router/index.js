@@ -18,7 +18,8 @@ import EditAddedRecipe from '@/views/LoggedIn/EditAddedRecipe.vue';
 
 
 const routes = [
-    { path: '/home', name: 'Home', component: Home },
+    { path: '/', name: 'Home', component: Home }, // set a homepage as a default page
+    { path: '/home', redirect: '/' }, //when a user wants to click on home in bnavbar, it will redirect him back
     { path: '/browserecipes', name: 'Browse Recipes', component: BrowseRecipes },
     { path: '/about', name: 'About', component: About},
     { path: '/login', name: 'Log in', component: Login },
