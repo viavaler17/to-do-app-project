@@ -93,6 +93,7 @@ const handleSubmit = async () => {
   }
 };
 
+//update categories
 const categorySelection = ref([]);
 
 const updateCategories = () => {
@@ -116,25 +117,26 @@ const updateTags = (tag) => {
   <div class="add-recipe-container">
     <div class="add-recipe">
       <h2>Add a recipe</h2>
+      <p>Fields with a * are required</p>
       <form @submit.prevent="handleSubmit">
         <div>
-          <label for="title">Title:</label>
+          <label for="title">*Title:</label>
           <input type="text" v-model="form.title" 
-          maxlength="24" placeholder="maximum of 24 characters (including spaces)" required />
+          maxlength="24" required />
         </div>
         
         <div>
-          <label for="imageURL">Image URL:</label>
-          <input type="url" v-model="form.imageURL" placeholder="tip: square images result in the best layout" required/>
+          <label for="imageURL">*Image URL:</label>
+          <input type="url" id="imageURL" name="imageURL" v-model="form.imageURL" required/>
         </div>
         
         <div>
-          <label for="prep_time">Prep Time (in minutes):</label>
+          <label for="prep_time">*Prep Time (in minutes):</label>
           <input type="number" v-model="form.prep_time" min="0" required/>
         </div>
 
         <div>
-          <h4>Ingredients:</h4>
+          <label for="ingredients">*Ingredients</label>
           <ul>
             <li v-for="(ingredient, index) in form.ingredients" :key="index">
               <input type="text" v-model="ingredient.ingredient" 
@@ -156,14 +158,14 @@ const updateTags = (tag) => {
         </div>
 
         <div>
-          <label for="description">Description:</label>
+          <label for="description">*Description:</label>
           <textarea v-model="form.description" class="description"
           minlength="100" placeholder="add a minimum of 100 characters (including spaces)" required></textarea>
         </div>
 
 
         <div>
-          <h3>Categories:</h3>
+          <h4>Categories:</h4>
           <label>
               <input 
               type="checkbox" 
@@ -194,7 +196,7 @@ const updateTags = (tag) => {
         </div>
 
         <div>
-          <h3>Tags:</h3>
+          <h4>Tags:</h4>
           <label>
             <input 
               type="checkbox" 
@@ -208,11 +210,13 @@ const updateTags = (tag) => {
         <button type="submit">Submit</button>
       </form>
     </div>
-    <!-- <div class="image-container">
-      <img src="https://images.pexels.com/photos/2751755/pexels-photo-2751755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Ingredients" />
-    </div> -->
+
+    <div class="image-container">
+      <img src="https://images.pexels.com/photos/2751755/pexels-photo-2751755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      alt="generic ingredients picture">
+    </div>
   </div>
-  </template>
+</template>
 
 <style scoped>
 .add-recipe-container {
@@ -222,7 +226,7 @@ const updateTags = (tag) => {
   max-width: 100%;
   margin: 40px 0 40px 100px; 
   padding: 10px;
-  gap: 200px;
+  gap: 100px;
 }
 
 .add-recipe {
@@ -230,10 +234,11 @@ const updateTags = (tag) => {
   max-width: 750px; 
 }
 
-/* .image-container {
+.image-container {
   flex: 1; 
-  max-width: 530px; 
-} */
+  max-width: 400px;
+  margin: auto 0px;
+}
 
 .image-container img {
   width: 100%; 
@@ -241,10 +246,16 @@ const updateTags = (tag) => {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
 h2 {
   text-align: center;
   color: #ff6f61;
   font-weight: 800;
+}
+
+p {
+  text-align: center;
+  color: grey;
 }
 
 form {

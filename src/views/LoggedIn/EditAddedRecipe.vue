@@ -76,7 +76,7 @@ onMounted(fetchRecipe);
         <form @submit.prevent="updateRecipe">
           <div>
             <label for="title">Title:</label>
-            <input type="text" v-model="form.title" maxlength="24" required />
+            <input type="text" v-model="form.title" required />
           </div>
     
           <div>
@@ -161,6 +161,10 @@ onMounted(fetchRecipe);
           <button type="submit">Update Recipe</button>
         </form>
       </div>
+      <div class="image-container">
+        <img src="https://images.unsplash.com/photo-1512149519538-136d1b8c574a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGluZ3JlZGllbnRzfGVufDB8MXwwfHx8MA%3D%3D"
+        alt="generic ingredients picture">
+      </div>
     </div>
   </template>
 
@@ -172,7 +176,7 @@ onMounted(fetchRecipe);
   max-width: 100%;
   margin: 40px 0 40px 100px; 
   padding: 10px;
-  gap: 200px;
+  gap: 100px;
 }
 
 .edit-recipe {
@@ -182,7 +186,8 @@ onMounted(fetchRecipe);
 
 .image-container {
   flex: 1; 
-  max-width: 530px; 
+  max-width: 400px;
+  margin: auto 0px;
 }
 
 .image-container img {

@@ -3,25 +3,38 @@ import { onMounted, ref } from 'vue';
 import { supabase } from '@/services/supabase';
 import ProfileBlueBar from '@/components/ProfileBlueBar.vue';
 
-const removeRecipe = async (id, title) => {
+const removeRecipe = async (recipeId, title) => {
   const confirmDeletion = window.confirm(`Are you sure you want to remove the recipe for: ${title}?`);
-  
+
   if (confirmDeletion) {
     try {
-      const { error } = await supabase
+      //deleting from favorites so there's no error
+      const { error: favDeleteError } = await supabase
+        .from('favorited')
+        .delete()
+        .eq('recipe_id', recipeId);
+
+      if (favDeleteError) {
+        console.error('Error deleting related favorites:', favDeleteError);
+        alert('An error occurred while attempting to remove favorites.');
+        return;
+      }
+
+      const { error: recipeDeleteError } = await supabase
         .from('recipes')
         .delete()
-        .eq('id', id);
+        .eq('id', recipeId);
 
-      if (error) {
-        console.error('Error deleting recipe:', error);
+      if (recipeDeleteError) {
+        console.error('Error deleting recipe:', recipeDeleteError);
         alert('An error occurred while attempting to delete the recipe.');
       } else {
-        fetchAddedRecipes(); //refresh current state of added recipes
-        alert('Recipe removed successfully!');
+        fetchAddedRecipes(); //get current state of the added recipes array
+        alert('Recipe and its favorites removed successfully!');
       }
     } catch (err) {
       console.error('Error during recipe removal:', err);
+      alert("An unexpected error occurred.");
     }
   }
 };
