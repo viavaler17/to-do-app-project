@@ -7,7 +7,6 @@ import LogOutByValeria from '../LogOutByValeria.vue';
     <div class="profile-container">
       <h2>User Profile</h2>
       <br>
-      <!-- Profile Picture Section -->
       <div class="profile-picture">
         <img src="https://img.freepik.com/free-vector/smiling-girl-portrait-casual-clothing-cartoon-flat-style-isolated-white-happy-teenager-vector_90220-2635.jpg?t=st=1730465250~exp=1730468850~hmac=f4eb3a800d384c749d9564dd842c97e2ebce5575ec165b9af0a51c2b37b786b1&w=740" alt="Profile Picture" />
       </div>
@@ -52,7 +51,6 @@ import LogOutByValeria from '../LogOutByValeria.vue';
       border: 3px solid #FFEB3B;
   }
   
-  /* Styling for Information Display */
   .profile-info {
       margin-bottom: 15px;
       text-align: left;
