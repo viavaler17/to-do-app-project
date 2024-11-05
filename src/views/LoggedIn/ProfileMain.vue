@@ -19,8 +19,8 @@ import { RouterLink } from 'vue-router';
     </div>
     <div class="random-recipes">
         <p class="suggestions-title">You might also like:</p>
-        <Propositions />
     </div>
+    <Propositions />
 </template>
 
 <style scoped>
