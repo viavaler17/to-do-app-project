@@ -17,7 +17,7 @@ const fetchRandomRecipes = async () => {
 
 
   const shuffledRecipes = data.sort(() => 0.5 - Math.random());
-  randomRecipes.value = shuffledRecipes.slice(0, 4); 
+  randomRecipes.value = shuffledRecipes.slice(0, 6); 
 };
 
 
@@ -48,14 +48,14 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 100vh; /* Adjust as needed for parent height */
+  height: 100vh; 
   padding-bottom: 20px; 
 }
 
 .propositions {
   margin: 70px auto 20px auto;
   padding: 15px;
-  max-width: 700px;
+  max-width: 830px;
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -74,29 +74,29 @@ h2 {
 }
 
 .recipe-list {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  flex-wrap: wrap;
+  display: flex; 
+  justify-content: space-between; 
+  gap: 15px; 
+  flex-wrap: nowrap;
 }
 
-.table-of-recipes {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  border-radius: 12px;
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
+.table-of-recipes { 
+  position: relative; 
+  width: 150px; 
+  height: 150px; 
+  border-radius: 12px; 
+  background-size: cover; 
+  background-position: center; 
+  cursor: pointer; 
+  overflow: hidden; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+  transition: transform 0.3s, box-shadow 0.3s; 
+} 
 
-.table-of-recipes:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
+.table-of-recipes:hover { 
+  transform: scale(1.05); 
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); 
+} 
 
 .recipe-title {
   position: absolute;
