@@ -78,6 +78,7 @@ const props = defineProps(['filteredRecipes']);
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+/* recipe going grey */
 .recipes-listed-each:hover .recipe-img {
   opacity: 0.4;
 }

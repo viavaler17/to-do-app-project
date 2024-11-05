@@ -117,14 +117,15 @@ onMounted(fetchAddedRecipes);
   align-items: center;
   word-break: break-all;
 
-  font-weight: 500;
+  font-weight: 450;
   font-size: 20px;
   min-height: 50px;
 }
 
 .title-preptime {
   padding: 10px;
-  color: white;
+  color: rgb(0, 0, 0);
+  transition: color 0.1s ease; 
 }
 
 .recipe-img {
@@ -144,17 +145,27 @@ onMounted(fetchAddedRecipes);
   gap: 10px;
 }
 
+.recipes-listed-each:hover .title-preptime {
+  color: white;
+}
+
 .recipes-listed-each:hover .buttons-container {
   display: flex;
   justify-content: center;
 }
 
+.recipes-listed-each:hover .recipe-img {
+  opacity: 0.4;
+}
+
 .edit-button, .remove-button {
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  padding: 5px 10px;
-  font-size: 14px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 3px 4px;
   cursor: pointer;
+  margin-bottom: 100px;
+  font-size: 16px;
 }
 
 .edit-button:hover, .remove-button:hover {
