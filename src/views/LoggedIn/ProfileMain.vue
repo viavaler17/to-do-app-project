@@ -17,9 +17,9 @@ import { RouterLink } from 'vue-router';
             <li><router-link to="/profiledetails">Your Details</router-link></li>
         </ul>
     </div>
-    <div class="random-recipes">
+    <!-- <div class="random-recipes">
         <p class="suggestions-title">You might also like:</p>
-    </div>
+    </div> -->
     <Propositions />
 </template>
 

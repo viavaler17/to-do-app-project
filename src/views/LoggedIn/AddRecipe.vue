@@ -2,8 +2,9 @@
 import { ref, reactive} from 'vue';
 import { supabase } from '@/services/supabase';
 import ProfileBlueBar from '@/components/ProfileBlueBar.vue';
+import { useRouter } from 'vue-router';
 
-
+const router = useRouter();
 
 const form = ref({
   title: '',
@@ -73,8 +74,8 @@ const handleSubmit = async () => {
     }
     alert("Recipe added!");
     console.log('Recipe added:', data);
+    router.push('/addedrecipes');
 
-    //to clear the form after submit
     form.value = {
       title: '',
       imageURL: '',
@@ -114,7 +115,7 @@ const updateTags = (tag) => {
   <ProfileBlueBar></ProfileBlueBar>
   <div class="add-recipe-container">
     <div class="add-recipe">
-      <h2>Add or Update a Recipe</h2>
+      <h2>Add a recipe</h2>
       <form @submit.prevent="handleSubmit">
         <div>
           <label for="title">Title:</label>
@@ -207,9 +208,9 @@ const updateTags = (tag) => {
         <button type="submit">Submit</button>
       </form>
     </div>
-    <div class="image-container">
+    <!-- <div class="image-container">
       <img src="https://images.pexels.com/photos/2751755/pexels-photo-2751755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Ingredients" />
-    </div>
+    </div> -->
   </div>
   </template>
 
@@ -229,10 +230,10 @@ const updateTags = (tag) => {
   max-width: 750px; 
 }
 
-.image-container {
+/* .image-container {
   flex: 1; 
   max-width: 530px; 
-}
+} */
 
 .image-container img {
   width: 100%; 
