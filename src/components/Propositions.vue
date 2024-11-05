@@ -53,7 +53,7 @@ onMounted(() => {
 }
 
 .propositions {
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 15px;
   max-width: 700px;
   background-color: #ffffff;

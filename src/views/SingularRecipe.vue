@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 import { supabase } from '@/services/supabase';
 import RecipeLayout from '@/components/RecipeLayout.vue';
 import FavoritedComponent from '@/components/FavoritedComponent.vue';
-// import Propositions from '@/components/Propositions.vue';
+import Propositions from '@/components/Propositions.vue';
 
 const route = useRoute();
 const recipeId = route.params.id;
@@ -45,7 +45,7 @@ onMounted(async () => {
         :description="recipe.description"
         />
     </div>
-    <!-- <Propositions></Propositions> -->
+    <Propositions></Propositions>
   </template>
 
 <style scoped>
