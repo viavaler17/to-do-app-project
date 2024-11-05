@@ -34,9 +34,5 @@ import FooterComponent from './components/FooterComponent.vue';
     height: unset;
     bottom: 0; 
 }
-/* position: absolute;
-    width: 100%;
-    height: unset;
-    bottom: 0; */
 </style>
 
