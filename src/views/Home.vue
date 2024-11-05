@@ -27,6 +27,7 @@ async function searchRecipe() {
       router.push({ name: 'SingularRecipe', params: { id: recipeId } });
     } else {
       alert('No recipe found with that title');
+      //router.push('/browse recipes');
     }
   } else {
     alert('Please enter a search term');

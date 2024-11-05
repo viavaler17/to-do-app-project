@@ -7,7 +7,7 @@
         <input v-model="email" type="email" placeholder="Email" required />
         <input v-model="password" type="password" placeholder="Password" required />
         <button type="submit">Sign Up</button>
-      </form>
+      </form><br>
     </div>
     <Propositions></Propositions>
   </div>
