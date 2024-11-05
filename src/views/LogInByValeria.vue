@@ -9,7 +9,7 @@
       </form><br>
       <p v-if="errorMessage" style="color: red;">{{ errorMessage }}</p>
       <p class="signup-link">Don't have an account?</p>
-      <router-link to="/SignUpByValeria">Sign up</router-link>
+      <router-link to="/signup">Sign up</router-link>
     </div>
   </div>
   </template>
@@ -47,7 +47,7 @@
   height: 100vh;
 }
 
-/* Auth card styling */
+
 .auth-card {
   width: 350px;
   padding: 2rem;
@@ -62,7 +62,7 @@
   transform: translateY(-5px);
 }
 
-/* Title and subtitle */
+
 h1 {
   font-size: 26px;
   color: #333;
@@ -92,7 +92,6 @@ input:focus {
   outline: none;
 }
 
-/* Button styling */
 button {
   width: 100%;
   padding: 0.75rem;
@@ -110,7 +109,7 @@ button:hover {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Error message styling */
+
 .error {
   color: #e74c3c;
   font-size: 14px;

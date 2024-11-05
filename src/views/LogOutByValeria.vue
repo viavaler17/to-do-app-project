@@ -21,7 +21,7 @@
     try {
       await logout(); 
       message.value = 'You have been logged out successfully.';
-      router.push('/profile');
+      router.push('/home');
     } catch (error) {
       message.value = 'Error logging out: ' + error.message; 
       console.error('Error logging out:', error);
