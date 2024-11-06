@@ -1,9 +1,11 @@
 <script setup>
+import ProfileBlueBar from '@/components/ProfileBlueBar.vue';
 import LogOutByValeria from '../LogOutByValeria.vue';
 
 </script>
 
 <template>
+  <ProfileBlueBar profileHeader="Your details"></ProfileBlueBar>
     <div class="profile-container">
       <h2>User Profile</h2>
       <br>

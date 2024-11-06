@@ -1,4 +1,12 @@
 <script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  profileHeader: {
+    type: String,
+    default: ''
+  }
+});
 </script>
 
 <template>
@@ -10,6 +18,9 @@
                 Back to profile
             </router-link>
         </p>
+        <h2 id="back-to-profile-text">
+          {{ profileHeader }}
+        </h2>
     </div>
 </template>
 
@@ -24,13 +35,15 @@
     padding: 15px 10px;
     align-items: center;
     margin-bottom: 20px;
+
+    display: flex;
+    position: relative;
 }
 
   #arrow-back{
     height: 50px;
     color: black;
     font-weight: 600;
-    font-size: 8;
 
     display: flex;
     align-items: center;
@@ -41,4 +54,13 @@
     height: 20px;
   }
 
+  h2{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+
+    color: #FF6F61;
+    font-weight: 800;
+  }
 </style>

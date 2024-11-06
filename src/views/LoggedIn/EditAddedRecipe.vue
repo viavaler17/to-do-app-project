@@ -69,10 +69,9 @@ onMounted(fetchRecipe);
 </script>
 
 <template>
-    <ProfileBlueBar/>
+    <ProfileBlueBar profileHeader="Edit recipe"/>
     <div class="edit-recipe-container">
       <div class="edit-recipe">
-        <h2>Edit Recipe</h2>
         <form @submit.prevent="updateRecipe">
           <div>
             <label for="title">Title:</label>
@@ -195,11 +194,6 @@ onMounted(fetchRecipe);
   height: auto; 
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-h2 {
-  text-align: center;
-  color: #ff6f61;
-  font-weight: 800;
 }
 
 form {

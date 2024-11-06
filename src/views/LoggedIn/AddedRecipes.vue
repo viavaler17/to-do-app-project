@@ -64,7 +64,7 @@ onMounted(fetchAddedRecipes);
 </script>
 
 <template>
-    <ProfileBlueBar></ProfileBlueBar>
+    <ProfileBlueBar profileHeader="Manage your recipes"></ProfileBlueBar>
     <div class="page-container">
       <ul class="recipes-listed">
         <li v-for="recipe in addedRecipes" :key="recipe.id" class="recipes-listed-each">
