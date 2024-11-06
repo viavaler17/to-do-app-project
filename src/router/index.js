@@ -13,8 +13,6 @@ import SingularRecipe from '@/views/SingularRecipe.vue';
 import SignUpByValeria from '@/views/SignUpByValeria.vue';
 import AddedRecipes from '@/views/LoggedIn/AddedRecipes.vue';
 import EditAddedRecipe from '@/views/LoggedIn/EditAddedRecipe.vue';
-import LogInByValeria from '@/views/LogInByValeria.vue';
-import { signup } from '@/services/database';
 import Signup from '@/views/Signup.vue';
 
 
@@ -34,6 +32,7 @@ const routes = [
     { path: '/edit/:id', name: 'EditAddedRecipe', component: EditAddedRecipe },
     { path: '/signupbyvaleria', name: 'Sign Up By Valeria', component: SignUpByValeria },
     { path: '/signup', name: 'Sign up', component: Signup },
+    
   ];
 
 const router = createRouter({
