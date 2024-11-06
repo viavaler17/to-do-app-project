@@ -103,13 +103,13 @@ h2 {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(103, 102, 102, 0.116); 
+  background: rgba(68, 132, 134, 0.623); 
   padding: 8px; 
   border-radius: 0 0 8px 8px; 
-  font-size: 10px; 
+  font-size: 11px; 
   font-weight: bold;
   text-align: center;
-  color: #ffffff; 
+  color: white; 
   backdrop-filter: blur(2px); 
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3); 
 }

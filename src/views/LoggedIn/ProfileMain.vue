@@ -90,7 +90,8 @@ import { RouterLink } from 'vue-router';
     width: 100%; 
     text-decoration: none; 
     color: #fff; 
-    background-color: #FF6F61; /* New background color */
+    background-color: #00a6a6;  /* New background color */
+    opacity: 0.6;
     padding: 12px 20px; 
     border-radius: 8px; 
     font-size: 1rem; 
@@ -100,10 +101,49 @@ import { RouterLink } from 'vue-router';
 } 
 
 .profile-buttons-1 a:hover { 
-    background-color: #FF4C3B; /* Darker shade of #FF6F61 */
+    background-color: #00a6a695; ; /* Darker shade of #FF6F61 */
     transform: translateY(-2px); 
+    
 } 
 
+.profile-buttons-2 a {
+    display: inline-block; 
+    width: 100%; 
+    text-decoration: none; 
+    color: #fff; 
+    background-color: #00686B; /* New background color */
+    opacity: 0.6;
+    padding: 12px 20px; 
+    border-radius: 8px; 
+    font-size: 1rem; 
+    font-weight: 600; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s, transform 0.2s; 
+} 
+
+.profile-buttons-2 a:hover { 
+    background-color: #2e5e62; /* Darker shade of #FF6F61 */
+    transform: translateY(-2px); 
+}
+
+.profile-buttons-3 a {
+    display: inline-block; 
+    width: 100%; 
+    text-decoration: none; 
+    color: #fff; 
+    background-color: #FF6F61; /* New background color */
+    padding: 12px 20px; 
+    border-radius: 8px; 
+    font-size: 1rem; 
+    font-weight: 600; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s, transform 0.2s; 
+} 
+
+.profile-buttons-3 a:hover { 
+    background-color: #FF4C3B; /* Darker shade of #FF6F61 */
+    transform: translateY(-2px); 
+}
 .suggestions-title { 
     font-size: 1.3rem; 
     color: #00686B; 

@@ -33,6 +33,17 @@
   button{
   display: block;
   margin: auto;
+  background-color: #dc3545;
+  padding: 10px 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  border: none;
+  }
+
+  button:hover{
+    background-color: #c82333;
   }
 
   h1{
