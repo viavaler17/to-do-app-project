@@ -4,7 +4,6 @@
 This is a dynamic platform created for all culinary enthusiasts regardless of your level of cooking.The platform offers a wide range of recipes designed to inspire users. Cook the worlds provides a detailed explanation of all the required steps in preparation, so you don't need to worry about anything! Together with this webpage you will experience cooking as an enjoyable and creative process. 
 
 
-
 ## 🚀 About Us
 We are two friends, Karolina and Valeria, with a shared passion for web design and front-end development. As beginners in the world of web design, we embarked on this journey to combine our love for cooking with our growing skills in web development. We're excited to represent our first developed project and we hope you enjoy our it as much as we enjoyed building it!
 
@@ -28,6 +27,8 @@ Favorites Table: This table links users to their favorite recipes. It’s connec
 - Favorites: Users can save their favorite recipes to easily edit them later, or remove them from the favourites.
 - Add a recipe: Users can add a personal recipe with its title, ingredients, preparation time, image, category and more.
 - Propositions: Suggestions for other recipes are dynamically displayed to help users discover new ideas.
+
+
 ## Installation
 
 Install my-project with npm
