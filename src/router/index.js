@@ -5,8 +5,7 @@ import BrowseRecipes from '@/views/BrowseRecipes.vue';
 import About from '@/views/About.vue';
 import Login from '@/views/Login.vue';
 import ProfileMain from '@/views/LoggedIn/ProfileMain.vue';
-import Favourited from '@/views/LoggedIn/Favourited.vue';
-import ShoppingList from '@/views/LoggedIn/ShoppingList.vue';
+import Favorited from '@/views/LoggedIn/Favorited.vue';
 import ProfileDetails from '@/views/LoggedIn/ProfileDetails.vue';
 import NotFound from '@/views/NotFound.vue';
 import AddRecipe from '@/views/LoggedIn/AddRecipe.vue';
@@ -19,16 +18,14 @@ import { signup } from '@/services/database';
 import Signup from '@/views/Signup.vue';
 
 
-
 const routes = [
     { path: '/', name: 'Home', component: Home }, // set a homepage as a default page
     { path: '/home', redirect: '/' }, //when a user wants to click on home in bnavbar, it will redirect him back
-    { path: '/browserecipes', name: 'Browse Recipes', component: BrowseRecipes },
+    { path: '/browserecipes', name: 'BrowseRecipes', component: BrowseRecipes },
     { path: '/about', name: 'About', component: About},
     { path: '/login', name: 'Log in', component: Login },
     { path: '/profile', name: 'Profile', component: ProfileMain},
-    { path: '/favourited', name: 'Favourited recipes', component: Favourited },
-    { path: '/shippinglist', name: 'Shopping List', component: ShoppingList },
+    { path: '/favorited', name: 'Favorited', component: Favorited },
     { path: '/profiledetails', name: 'Profile details', component: ProfileDetails },
     { path: '/addrecipe', name: 'Add recipe', component: AddRecipe },
     { path: '/addedrecipes', name: 'AddedRecipes', component: AddedRecipes },

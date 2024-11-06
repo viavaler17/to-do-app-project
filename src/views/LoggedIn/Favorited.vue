@@ -86,7 +86,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <ProfileBlueBar/>
+  <ProfileBlueBar profileHeader="Your favorites"/>
   <div class="container-container">
     <div class="container">
         <CategoriesTags @categorySelected="selectCategory" @tagsUpdated="selectTags"/>

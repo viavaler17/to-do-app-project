@@ -113,10 +113,9 @@ const updateTags = (tag) => {
 
 
 <template>
-  <ProfileBlueBar></ProfileBlueBar>
+  <ProfileBlueBar profileHeader="Add a recipe"/>
   <div class="add-recipe-container">
     <div class="add-recipe">
-      <h2>Add a recipe</h2>
       <p>Fields with a * are required</p>
       <form @submit.prevent="handleSubmit">
         <div>
@@ -247,15 +246,9 @@ const updateTags = (tag) => {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-  text-align: center;
-  color: #ff6f61;
-  font-weight: 800;
-}
-
 p {
-  text-align: center;
   color: grey;
+  margin-bottom: 10px;
 }
 
 form {

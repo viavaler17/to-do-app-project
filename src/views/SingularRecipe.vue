@@ -5,6 +5,7 @@ import { supabase } from '@/services/supabase';
 import RecipeLayout from '@/components/RecipeLayout.vue';
 import FavoritedComponent from '@/components/FavoritedComponent.vue';
 import Propositions from '@/components/Propositions.vue';
+import RecipeArrowBack from '@/components/RecipeArrowBack.vue';
 
 const route = useRoute();
 const recipeId = route.params.id;
@@ -33,6 +34,8 @@ onMounted(async () => {
 </script>
 
 <template>
+  <RecipeArrowBack></RecipeArrowBack>
+  
     <div class="singular-recipe">
         <FavoritedComponent :recipeId="recipeId" />
 
