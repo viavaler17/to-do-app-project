@@ -5,6 +5,15 @@ import { RouterLink } from 'vue-router';
 </script>
 
 <template>
+    <!-- IDEA OF CODE - CAN DELETE -->
+    <div class="button-colors">
+        <button id="one">Favorites</button>
+        <button id="two">Add a recipe</button>
+        <button id="three">Manage your recipes</button>
+        <button id="four">Your details</button>
+    </div>
+    <!-- END OF IDEA -->
+    
     <div class="profile-container">
         <div class="greetings">
             <h1>Hello!</h1>
@@ -13,7 +22,7 @@ import { RouterLink } from 'vue-router';
         <ul class="options-list">
             <li class="profile-buttons"><router-link to="/favourited">Your Favourites</router-link></li>
             <li class="profile-buttons-1"><router-link to="/addrecipe">Add a Recipe</router-link></li>
-            <li class="profile-buttons"><router-link to="/addedrecipes">Manage added recipes</router-link></li>
+            <li class="profile-buttons"><router-link to="/addedrecipes">Manage Your Recipes</router-link></li>
             <li class="profile-buttons-1"><router-link to="/profiledetails">Your Details</router-link></li>
         </ul>
     </div>
@@ -101,5 +110,40 @@ import { RouterLink } from 'vue-router';
     font-weight: bold; 
     margin-bottom: 15px; 
     text-align: center; 
+}
+
+
+
+/* IDEA OF CODE - CAN DELETE */
+.button-colors button{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #fff; 
+    padding: 12px 20px; 
+    border-radius: 8px; 
+    font-size: 1rem; 
+    font-weight: 600; 
+    transition: background-color 0.3s, transform 0.2s; 
+    border: none;
+    margin: 10px;
+    width: 300px;
+}
+
+#one{
+    background-color: #00A6A6;
+}
+
+#two{
+    background-color: #218838;
+}
+
+#three{
+    background-color: #28a745;
+
+}
+
+#four{
+    background-color: #FF6F61;
 }
 </style>
