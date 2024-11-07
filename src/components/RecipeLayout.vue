@@ -40,7 +40,7 @@ export default {
           </slot>
 
           <slot name="cooking-time">
-            <p>Cooking Time: {{ cookingTime ? cookingTime + ' minutes' : '---' }}</p>
+            <h4>Cooking Time: {{ cookingTime ? cookingTime + ' minutes' : '---' }}</h4>
           </slot>
         </div>
         <slot name="description">
@@ -77,7 +77,6 @@ export default {
     background-color: #d6d6d63f;
   }
 
-  
   img{
     max-width: 300px;
     max-height: 300px;
@@ -91,5 +90,9 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 30px;
+  }
+
+  h2, h3, h4{
+    font-weight: 600;
   }
 </style>

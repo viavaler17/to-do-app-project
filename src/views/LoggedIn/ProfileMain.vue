@@ -20,7 +20,7 @@ import { RouterLink } from 'vue-router';
             <p>Select from the options below:</p>
         </div>
         <ul class="options-list">
-            <li class="profile-buttons"><router-link to="/favourited">Your Favourites</router-link></li>
+            <li class="profile-buttons"><router-link to="/yourfavorites">Your Favourites</router-link></li>
             <li class="profile-buttons-1"><router-link to="/addrecipe">Add a Recipe</router-link></li>
             <li class="profile-buttons"><router-link to="/addedrecipes">Manage Your Recipes</router-link></li>
             <li class="profile-buttons-1"><router-link to="/profiledetails">Your Details</router-link></li>

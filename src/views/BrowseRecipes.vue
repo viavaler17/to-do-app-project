@@ -59,7 +59,7 @@ onMounted(() => {
   <div class="container-container">
     <div class="container">
       <CategoriesTags @categorySelected="selectCategory" @tagsUpdated="selectTags"/>
-      <RecipesListed :filteredRecipes="filteredRecipes" />
+      <RecipesListed :filteredRecipes="filteredRecipes" source="BrowseRecipes" />
     </div>
   </div>
 </template>
