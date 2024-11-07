@@ -16,20 +16,20 @@ const props = defineProps({
         <p>Back to Profile</p>
       </router-link>
       
-      <h2 id="back-to-profile-text">
+      <h1 id="back-to-profile-text">
         {{ profileHeader }}
-      </h2>
+      </h1>
     </div>
 </template>
 
 <style scoped>
   .arrow-back-container {
-    background-color: #f0f8ff;
     height: 50px;
     width: 100%;
-    padding: 15px 10px;
+    padding: 20px 10px;
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 18px;
 
     display: flex;
     position: relative;
@@ -48,7 +48,7 @@ const props = defineProps({
     height: 20px;
   }
 
-  h2{
+  h1{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);

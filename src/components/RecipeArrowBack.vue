@@ -29,12 +29,11 @@ console.log(route.query.source);
 
 <style>
 .arrow-back-container{
-    background-color: #f0f8ff;
-    height: 80px;
+    height: 50px;
     width: 100%;
-    padding: 15px 10px;
+    padding: 0px 10px;
     align-items: center;
-    margin-bottom: 20px;
+    margin: 18px 0px;
 
     display: flex;
     position: relative;

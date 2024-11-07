@@ -81,8 +81,7 @@ onMounted(() => {
   h1 {
     color: #00A6A6;
     font-weight: 800;
-    font-size: 32px;
-    padding: 9px 0px;
+    padding: 20px 0px;
     text-align: center;
   } 
 </style>

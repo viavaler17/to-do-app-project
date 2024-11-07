@@ -56,8 +56,7 @@ onMounted(async () => {
 <style scoped>
 .page-container{
   width: 1040px;
-  margin: 20px auto;
-  /* border: 1px solid black; */
+  margin: 0px auto 40px auto;
 }
 
 .singular-recipe{
