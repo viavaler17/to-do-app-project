@@ -44,9 +44,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding-bottom: 24px;
 }
-
 
 .auth-card {
   width: 350px;
@@ -61,7 +60,6 @@
 .auth-card:hover {
   transform: translateY(-5px);
 }
-
 
 h1 {
   font-size: 26px;
@@ -108,7 +106,6 @@ button:hover {
   background-color: #5a75d9;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
-
 
 .error {
   color: #e74c3c;

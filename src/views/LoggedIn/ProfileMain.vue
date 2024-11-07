@@ -5,22 +5,30 @@ import { RouterLink } from 'vue-router';
 </script>
 
 <template>
-    <div class="profile-container">
-        <div class="greetings">
-            <h1>Hello!</h1>
-            <p>Select from the options below:</p>
+    <div class="page-container">
+        <div class="profile-container">
+            <div class="greetings">
+                <h1>Hello!</h1>
+                <p>Select from the options below:</p>
+            </div>
+            <ul class="options-list">
+                <li class="profile-buttons"><router-link to="/yourfavorites">Your Favorites</router-link></li>
+                <li class="profile-buttons-1"><router-link to="/addrecipe">Add a Recipe</router-link></li>
+                <li class="profile-buttons-2"><router-link to="/addedrecipes">Manage Your Recipes</router-link></li>
+                <li class="profile-buttons-3"><router-link to="/profiledetails">Your Details</router-link></li>
+            </ul>
         </div>
-        <ul class="options-list">
-            <li class="profile-buttons"><router-link to="/favorited">Your Favourites</router-link></li>
-            <li class="profile-buttons-1"><router-link to="/addrecipe">Add a Recipe</router-link></li>
-            <li class="profile-buttons-2"><router-link to="/addedrecipes">Manage added recipes</router-link></li>
-            <li class="profile-buttons-3"><router-link to="/profiledetails">Your Details</router-link></li>
-        </ul>
+        <Propositions/>
     </div>
-    <Propositions />
 </template>
 
 <style scoped>
+  .page-container{
+    max-width: 1140px;
+    margin: 70px auto 40px auto;
+    padding: 0 20px;
+  }
+
 .profile-container { 
     max-width: 600px; 
     margin: 70px auto; 

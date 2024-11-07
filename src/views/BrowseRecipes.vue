@@ -57,9 +57,10 @@ onMounted(() => {
 
 <template>
   <div class="container-container">
+    <h1>Browse recipes</h1>
     <div class="container">
       <CategoriesTags @categorySelected="selectCategory" @tagsUpdated="selectTags"/>
-      <RecipesListed :filteredRecipes="filteredRecipes" />
+      <RecipesListed :filteredRecipes="filteredRecipes" source="BrowseRecipes" />
     </div>
   </div>
 </template>
@@ -67,12 +68,21 @@ onMounted(() => {
 <style scoped>
   .container-container{
     max-width: 1140px;
-    margin: 70px auto;
+    margin: 0px auto 70px auto;
     padding: 0 20px;
+    min-height: 90vh;
   }
   .container{
     display: flex;
     gap: 100px;
     justify-content: flex-start;
   }
+
+  h1 {
+    color: #00A6A6;
+    font-weight: 800;
+    font-size: 32px;
+    padding: 9px 0px;
+    text-align: center;
+  } 
 </style>

@@ -36,10 +36,11 @@ onMounted(async () => {
 <template>
   <RecipeArrowBack></RecipeArrowBack>
   
+  <div class="page-container">
     <div class="singular-recipe">
-        <FavoritedComponent :recipeId="recipeId" />
+      <FavoritedComponent :recipeId="recipeId" />
 
-        <RecipeLayout
+      <RecipeLayout
         :recipeId="recipe.id"
         :imageUrl="recipe.imageURL"
         :title="recipe.title"
@@ -49,19 +50,19 @@ onMounted(async () => {
         />
     </div>
     <Propositions></Propositions>
-  </template>
+  </div>  
+</template>
 
 <style scoped>
-  *{
-    max-width: 1140px;
-    padding: 0 20px;
-  }
+.page-container{
+  width: 1040px;
+  margin: 20px auto;
+  /* border: 1px solid black; */
+}
 
 .singular-recipe{
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
-  margin: 50px auto;
-}
+} 
 </style>
