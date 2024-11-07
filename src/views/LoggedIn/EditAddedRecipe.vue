@@ -69,9 +69,10 @@ onMounted(fetchRecipe);
 </script>
 
 <template>
-    <ProfileBlueBar profileHeader="Edit recipe"/>
+    <ProfileBlueBar profileHeader="Edit a recipe"/>
     <div class="edit-recipe-container">
       <div class="edit-recipe">
+        <p>Fields with a * are required</p>
         <form @submit.prevent="updateRecipe">
           <div>
             <label for="title">Title:</label>
@@ -173,9 +174,14 @@ onMounted(fetchRecipe);
   justify-content: flex-start;
   align-items: flex-start;
   max-width: 100%;
-  margin: 40px 0 40px 100px; 
+  margin: 20px 0 70px 100px; 
   padding: 10px;
   gap: 100px;
+}
+
+p {
+  color: grey;
+  margin-bottom: 10px;
 }
 
 .edit-recipe {

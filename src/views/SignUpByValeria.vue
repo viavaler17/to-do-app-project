@@ -40,7 +40,6 @@
   flex-direction: column; 
   justify-content: center;
   align-items: center; 
-  height: 100vh;
   background: linear-gradient(135deg, #6e8efb, #a777e3);
 }
 
@@ -58,25 +57,32 @@
   transform: translateY(-5px);
 }
 
-p{
-  color: #666;
-  margin-bottom: 1.5rem;
-  font-weight: bold;
-}
-
 h1 {
   font-size: 26px;
   color: #333;
   margin-bottom: 0.5rem;
 }
 
+p{
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
 input {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 4px;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
   border: 1px solid #ddd;
+  border-radius: 8px;
   font-size: 16px;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+input:focus {
+  border-color: #6e8efb;
+  outline: none;
 }
 
 button {
@@ -94,5 +100,11 @@ button {
 button:hover {
   background-color: #5a75d9;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 1rem;
 }
 </style>

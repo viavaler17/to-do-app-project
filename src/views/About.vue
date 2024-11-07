@@ -29,17 +29,17 @@
 .about-container {
     max-width: 1140px;
     /* changed the max-width and margin to match other views so teh screen doesn't jump */
-    margin: 70px auto;
+    margin: 0px auto 70px auto;
     padding: 0 20px;
     background-color: #ffffff;
 }
 
 h1 {
-    color: #00A6A6; /* Modern teal color */
-    margin-bottom: 15px;
-    font-size: 2.5rem;
+    color: #00A6A6;
     font-weight: 800;
-}
+    padding: 20px 0px;
+    text-align: center;
+  } 
 
 p {
     color: #333;
@@ -56,6 +56,7 @@ h2 {
 
 h3 {
     font-weight: 600;
+    height: 20px;
 }
 
 .about-content {
@@ -71,11 +72,6 @@ h3 {
     border-radius: 12px;
     transition: transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.about-image:hover {
-    transform: scale(1.03);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 }
 
 .content {

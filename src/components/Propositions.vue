@@ -49,14 +49,14 @@ onMounted(() => {
   justify-content: center;
   align-items: flex-end;
   height: 100vh; 
-  padding-bottom: 20px; 
+  padding-bottom: 20px;
 }
 
 .propositions {
-  margin: 70px auto 20px auto;
+  margin: 100px auto 20px auto;
   padding: 15px;
   max-width: 830px;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.8); 
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;

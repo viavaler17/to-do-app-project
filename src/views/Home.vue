@@ -70,12 +70,13 @@ async function searchRecipe() {
 .main-container { 
   position: relative; 
   display: flex; 
-  flex-direction: column; 
+  flex-direction: column;
+  gap: 20px;
   align-items: center; 
   justify-content: center; 
   min-height: calc(100vh - 100px);  
   width: 100%;  
-  padding: 20px; 
+  padding: 20px;
   text-align: center; 
   color: #fff;  
   background: url('https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat fixed; 

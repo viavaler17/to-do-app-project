@@ -5,7 +5,7 @@ import BrowseRecipes from '@/views/BrowseRecipes.vue';
 import About from '@/views/About.vue';
 import Login from '@/views/Login.vue';
 import ProfileMain from '@/views/LoggedIn/ProfileMain.vue';
-import Favorited from '@/views/LoggedIn/Favorited.vue';
+import YourFavorites from '@/views/LoggedIn/YourFavorites.vue';
 import ProfileDetails from '@/views/LoggedIn/ProfileDetails.vue';
 import NotFound from '@/views/NotFound.vue';
 import AddRecipe from '@/views/LoggedIn/AddRecipe.vue';
@@ -23,7 +23,7 @@ const routes = [
     { path: '/about', name: 'About', component: About},
     { path: '/login', name: 'Log in', component: Login },
     { path: '/profile', name: 'Profile', component: ProfileMain},
-    { path: '/favorited', name: 'Favorited', component: Favorited },
+    { path: '/yourfavorites', name: 'YourFavorites', component: YourFavorites },
     { path: '/profiledetails', name: 'Profile details', component: ProfileDetails },
     { path: '/addrecipe', name: 'Add recipe', component: AddRecipe },
     { path: '/addedrecipes', name: 'AddedRecipes', component: AddedRecipes },

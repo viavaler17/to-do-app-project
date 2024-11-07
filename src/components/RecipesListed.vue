@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps(['filteredRecipes']);
+const props = defineProps(['filteredRecipes', 'source']);
 
 </script>
 
@@ -7,7 +7,7 @@ const props = defineProps(['filteredRecipes']);
     <ul class="recipes-listed">
   
       <li v-for="recipe in filteredRecipes" :key="recipe.id" class="recipes-listed-each"
-      @click="$router.push({ name: 'SingularRecipe', params: { id: recipe.id } })">
+      @click="$router.push({ name: 'SingularRecipe', params: { id: recipe.id }, query: { source } })">
         
         <div class="recipe-inner">
           <div class="image-container">
@@ -37,6 +37,7 @@ const props = defineProps(['filteredRecipes']);
   align-content: flex-start;
   list-style-type: none;
   width: 790px;
+  min-height: 90vh;
 }
 
 .title {
