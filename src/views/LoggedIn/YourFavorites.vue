@@ -86,8 +86,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <ProfileBlueBar profileHeader="Your favorites"/>
-  <div class="container-container">
+  <ProfileBlueBar profileHeader="Your Favorites"/>
+  <div class="page-container-fav">
     <div class="container">
         <CategoriesTags @categorySelected="selectCategory" @tagsUpdated="selectTags"/>
         <RecipesListed :filteredRecipes="filteredRecipes" source="YourFavorites" />
@@ -96,11 +96,11 @@ onMounted(() => {
 </template>
 
 <style scoped>
-  .container-container{
+  .page-container-fav{
     max-width: 1140px;
-    margin: 0px auto;
+    margin: 0px auto 70px auto;
     padding: 0 20px;
-    min-height: 600px;
+    min-height: 80vh;
   }
   
   .container{

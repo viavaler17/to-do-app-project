@@ -25,7 +25,7 @@ const props = defineProps({
 <style scoped>
   .arrow-back-container {
     background-color: #f0f8ff;
-    height: 80px;
+    height: 50px;
     width: 100%;
     padding: 15px 10px;
     align-items: center;

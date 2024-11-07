@@ -223,7 +223,7 @@ const updateTags = (tag) => {
   justify-content: flex-start;
   align-items: flex-start;
   max-width: 100%;
-  margin: 40px 0 40px 100px; 
+  margin: 20px 0 70px 100px; 
   padding: 10px;
   gap: 100px;
 }

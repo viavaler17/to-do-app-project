@@ -64,7 +64,7 @@ onMounted(fetchAddedRecipes);
 </script>
 
 <template>
-    <ProfileBlueBar profileHeader="Manage your recipes"></ProfileBlueBar>
+    <ProfileBlueBar profileHeader="Manage Your Recipes"></ProfileBlueBar>
     <div class="page-container">
       <ul class="recipes-listed">
         <li v-for="recipe in addedRecipes" :key="recipe.id" class="recipes-listed-each">
@@ -91,9 +91,10 @@ onMounted(fetchAddedRecipes);
 <style scoped>
 .page-container {
   max-width: 1140px;
-  margin: 70px auto;
+  margin: 20px auto 70px auto;
   padding: 0 20px;
   background-color: #ffffff;
+  min-height: 90vh;
 }
 
 .recipes-listed {

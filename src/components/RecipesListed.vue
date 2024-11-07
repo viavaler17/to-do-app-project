@@ -37,6 +37,7 @@ const props = defineProps(['filteredRecipes', 'source']);
   align-content: flex-start;
   list-style-type: none;
   width: 790px;
+  min-height: 90vh;
 }
 
 .title {

@@ -14,7 +14,8 @@ import LogInByValeria from './LogInByValeria.vue';
 <style scoped>
 .login-container {
     background: linear-gradient(135deg, #6e8efb, #a777e3);
-    padding-bottom: 70px;
+    padding: 70px 0px 40px 0px;
+    background-color: #ffffff;
 }
 
 </style>

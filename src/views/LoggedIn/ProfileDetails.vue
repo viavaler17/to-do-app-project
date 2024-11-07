@@ -5,7 +5,7 @@ import LogOutByValeria from '../LogOutByValeria.vue';
 </script>
 
 <template>
-  <ProfileBlueBar profileHeader="Your details"></ProfileBlueBar>
+  <ProfileBlueBar profileHeader="Your Details"></ProfileBlueBar>
     <div class="profile-container">
       <h2>User Profile</h2>
       <br>
@@ -32,7 +32,7 @@ import LogOutByValeria from '../LogOutByValeria.vue';
   /* Profile Container */
   .profile-container {
       max-width: 400px;
-      margin: 20px auto;
+      margin: 20px auto 70px auto;
       padding: 20px;
       border-radius: 8px;
       background: #ffffff;
