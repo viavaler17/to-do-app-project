@@ -98,7 +98,7 @@ onMounted(() => {
 <style scoped>
   .page-container-fav{
     max-width: 1140px;
-    margin: 0px auto 70px auto;
+    margin: 00px auto 70px auto;
     padding: 0 20px;
     min-height: 80vh;
   }
