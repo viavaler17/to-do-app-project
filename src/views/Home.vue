@@ -48,7 +48,7 @@ async function searchRecipe() {
         is a dynamic platform for culinary enthusiasts, providing a wide range of recipes for all skill levels. It encourages users to explore international cuisines, turning meals into exciting cultural adventures. 
       </p> 
 
-      <h2>Discover New Recipes Every Day!</h2>
+      <h2 class="welcome">Discover New Recipes Every Day!</h2>
       <p class="description">Join our community and explore culinary adventures from around the world.</p>
     </header> 
  
