@@ -64,7 +64,7 @@ export default {
 
 <style scoped>
 .recipe-layout{
-    max-width: 1040px;
+    width: 1040px;
     height: max-content;
     padding: 40px;
 
@@ -90,6 +90,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    flex-grow: 1;
   }
 
   h2, h3, h4{
