@@ -12,7 +12,7 @@
     </button>
 
     <p v-else>
-      <router-link to="/login" id="login-to-favorite">
+      <router-link to="/login" target="_blank" id="login-to-favorite">
         Log in to add this recipe to your favorites
       </router-link>
     </p>
