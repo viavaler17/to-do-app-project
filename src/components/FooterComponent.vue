@@ -5,9 +5,7 @@ import { RouterLink } from 'vue-router';
 <template>
     <div class="wrapper">
         <div class="footer">
-            <p>
-                <router-link to="/contact">Contact us</router-link>
-            </p>
+            <p>Contact us </p>
             <div id="follow-us">
                 <a href="https://www.instagram.com/" target="_blank">
                     Follow us on Instagram
