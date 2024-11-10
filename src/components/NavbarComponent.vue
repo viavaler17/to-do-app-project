@@ -11,7 +11,7 @@ import { RouterLink, RouterView } from 'vue-router';
       <li><router-link to="/about">About</router-link></li>
     </ul>
   </nav>
-  <router-view></router-view>
+  <router-view :key="$route.params.id"></router-view>
 </template>
 
 <style scoped>

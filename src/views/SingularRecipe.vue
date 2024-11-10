@@ -8,7 +8,9 @@ import Propositions from '@/components/Propositions.vue';
 import RecipeArrowBack from '@/components/RecipeArrowBack.vue';
 
 const route = useRoute();
-const recipeId = route.params.id;
+const recipeId = ref(route.params.id);
+
+console.log('recipeId:', recipeId.value);
 
 const recipe = ref({
   imageURL: '',
@@ -22,7 +24,7 @@ onMounted(async () => {
   const { data, error } = await supabase
     .from('recipes')
     .select('*')
-    .eq('id', recipeId)
+    .eq('id', recipeId.value)
     .single();
 
   if (error) {
@@ -49,8 +51,8 @@ onMounted(async () => {
         :description="recipe.description"
         />
     </div>
-    <Propositions></Propositions>
   </div>  
+  <Propositions></Propositions>
 </template>
 
 <style scoped>
